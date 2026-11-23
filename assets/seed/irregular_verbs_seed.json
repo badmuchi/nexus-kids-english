@@ -1,0 +1,191 @@
+[
+  {
+    "id": "v_buy",
+    "v1": "buy",
+    "v2": "bought",
+    "v3": "bought",
+    "translation": "покупать",
+    "rhymeGroup": "Ought-Family",
+    "exampleSentence": "I bought a new detective book yesterday."
+  },
+  {
+    "id": "v_bring",
+    "v1": "bring",
+    "v2": "brought",
+    "v3": "brought",
+    "translation": "приносить",
+    "rhymeGroup": "Ought-Family",
+    "exampleSentence": "He brought his robotics project to school."
+  },
+  {
+    "id": "v_catch",
+    "v1": "catch",
+    "v2": "caught",
+    "v3": "caught",
+    "translation": "ловить",
+    "rhymeGroup": "Ought-Family",
+    "exampleSentence": "The goalkeeper caught the ball in the last second."
+  },
+  {
+    "id": "v_fight",
+    "v1": "fight",
+    "v2": "fought",
+    "v3": "fought",
+    "translation": "бороться, драться",
+    "rhymeGroup": "Ought-Family",
+    "exampleSentence": "Knights fought brave battles in ancient times."
+  },
+  {
+    "id": "v_think",
+    "v1": "think",
+    "v2": "thought",
+    "v3": "thought",
+    "translation": "думать",
+    "rhymeGroup": "Ought-Family",
+    "exampleSentence": "I thought about the answer for two minutes."
+  },
+  {
+    "id": "v_teach",
+    "v1": "teach",
+    "v2": "taught",
+    "v3": "taught",
+    "translation": "обучать, учить",
+    "rhymeGroup": "Ought-Family",
+    "exampleSentence": "Our teacher taught us English songs today."
+  },
+  {
+    "id": "v_begin",
+    "v1": "begin",
+    "v2": "began",
+    "v3": "begun",
+    "translation": "начинать",
+    "rhymeGroup": "I-A-U Family",
+    "exampleSentence": "The concert began at seven sharp."
+  },
+  {
+    "id": "v_drink",
+    "v1": "drink",
+    "v2": "drank",
+    "v3": "drunk",
+    "translation": "пить",
+    "rhymeGroup": "I-A-U Family",
+    "exampleSentence": "The cat drank fresh milk from the bowl."
+  },
+  {
+    "id": "v_ring",
+    "v1": "ring",
+    "v2": "rang",
+    "v3": "rung",
+    "translation": "звонить",
+    "rhymeGroup": "I-A-U Family",
+    "exampleSentence": "The school bell rang loudly after the lesson."
+  },
+  {
+    "id": "v_sing",
+    "v1": "sing",
+    "v2": "sang",
+    "v3": "sung",
+    "translation": "петь",
+    "rhymeGroup": "I-A-U Family",
+    "exampleSentence": "Birds sang sweet melodies in the park."
+  },
+  {
+    "id": "v_swim",
+    "v1": "swim",
+    "v2": "swam",
+    "v3": "swum",
+    "translation": "плавать",
+    "rhymeGroup": "I-A-U Family",
+    "exampleSentence": "We swam across the quiet lake in July."
+  },
+  {
+    "id": "v_cost",
+    "v1": "cost",
+    "v2": "cost",
+    "v3": "cost",
+    "translation": "стоить",
+    "rhymeGroup": "Twin-Brothers",
+    "exampleSentence": "This spaceship ticket cost a million coins."
+  },
+  {
+    "id": "v_cut",
+    "v1": "cut",
+    "v2": "cut",
+    "v3": "cut",
+    "translation": "резать",
+    "rhymeGroup": "Twin-Brothers",
+    "exampleSentence": "Sparky cut the red ribbon at the opening."
+  },
+  {
+    "id": "v_hit",
+    "v1": "hit",
+    "v2": "hit",
+    "v3": "hit",
+    "translation": "ударять",
+    "rhymeGroup": "Twin-Brothers",
+    "exampleSentence": "The tennis player hit the ball over the net."
+  },
+  {
+    "id": "v_put",
+    "v1": "put",
+    "v2": "put",
+    "v3": "put",
+    "translation": "класть",
+    "rhymeGroup": "Twin-Brothers",
+    "exampleSentence": "She put the keys in her school bag."
+  },
+  {
+    "id": "v_break",
+    "v1": "break",
+    "v2": "broke",
+    "v3": "broken",
+    "translation": "ломать",
+    "rhymeGroup": "En-Ending Family",
+    "exampleSentence": "The little robot broke its antenna."
+  },
+  {
+    "id": "v_choose",
+    "v1": "choose",
+    "v2": "chose",
+    "v3": "chosen",
+    "translation": "выбирать",
+    "rhymeGroup": "En-Ending Family",
+    "exampleSentence": "We chose a funny name for our team."
+  },
+  {
+    "id": "v_speak",
+    "v1": "speak",
+    "v2": "spoke",
+    "v3": "spoken",
+    "translation": "говорить",
+    "rhymeGroup": "En-Ending Family",
+    "exampleSentence": "She spoke English fluently during the debate."
+  },
+  {
+    "id": "v_blow",
+    "v1": "blow",
+    "v2": "blew",
+    "v3": "blown",
+    "translation": "дуть",
+    "rhymeGroup": "Ew-Own Family",
+    "exampleSentence": "A cool breeze blew from the sea."
+  },
+  {
+    "id": "v_grow",
+    "v1": "grow",
+    "v2": "grew",
+    "v3": "grown",
+    "translation": "расти",
+    "rhymeGroup": "Ew-Own Family",
+    "exampleSentence": "Sunflowers grew very tall in our garden."
+  },
+  {
+    "id": "v_know",
+    "v1": "know",
+    "v2": "knew",
+    "v3": "known",
+    "translation": "знать",
+    "rhymeGroup": "Ew-Own Family",
+    "exampleSentence": "The scientist knew the secret formula."
+  }
+]

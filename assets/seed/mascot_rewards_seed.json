@@ -1,0 +1,91 @@
+{
+  "accessories": [
+    {
+      "id": "acc_headphones",
+      "name": "Неоновые наушники",
+      "emoji": "🎧",
+      "slot": "hat",
+      "costXp": 0,
+      "description": "Стильные наушники для идеального аудирования.",
+      "isUnlocked": true
+    },
+    {
+      "id": "acc_detective_hat",
+      "name": "Шляпа Шерлока",
+      "emoji": "🕵️",
+      "slot": "hat",
+      "costXp": 150,
+      "description": "Помогает раскрыть все тайны неправильных глаголов.",
+      "isUnlocked": true
+    },
+    {
+      "id": "acc_astronaut",
+      "name": "Шлем астронавта",
+      "emoji": "🧑‍🚀",
+      "slot": "hat",
+      "costXp": 300,
+      "description": "Готовность к покорению межгалактических тестов IB!",
+      "isUnlocked": false
+    },
+    {
+      "id": "acc_sunglasses",
+      "name": "Крутые очки",
+      "emoji": "🕶️",
+      "slot": "eyes",
+      "costXp": 200,
+      "description": "Для тех, кто сдает ВПР с закрытыми глазами.",
+      "isUnlocked": false
+    },
+    {
+      "id": "acc_crown",
+      "name": "Золотая корона",
+      "emoji": "👑",
+      "slot": "hat",
+      "costXp": 500,
+      "description": "Настоящий король английской грамматики!",
+      "isUnlocked": false
+    }
+  ],
+  "badges": [
+    {
+      "id": "badge_vpr_master",
+      "title": "Мастер ВПР",
+      "description": "Реши все задания ВПР 5-7 классов на максимальный балл.",
+      "emoji": "🎒",
+      "category": "academic",
+      "isUnlocked": true
+    },
+    {
+      "id": "badge_rhyme_king",
+      "title": "Король рифм глаголов",
+      "description": "Пройди блиц-викторину неправильных глаголов без единой ошибки.",
+      "emoji": "⚡",
+      "category": "speed",
+      "isUnlocked": true
+    },
+    {
+      "id": "badge_eagle_ear",
+      "title": "Орлиный слух",
+      "description": "Различи все 6 пар звуков в лаборатории Minimal Pairs.",
+      "emoji": "🦅",
+      "category": "phonetics",
+      "isUnlocked": false
+    },
+    {
+      "id": "badge_sentence_architect",
+      "title": "Архитектор предложений",
+      "description": "Собери 10 предложений в конструкторе без подсказок.",
+      "emoji": "🧩",
+      "category": "grammar",
+      "isUnlocked": false
+    },
+    {
+      "id": "badge_ib_diplomat",
+      "title": "Юный дипломат IB",
+      "description": "Напиши постер и выполни устное задание по критериям A-D.",
+      "emoji": "🌍",
+      "category": "international",
+      "isUnlocked": false
+    }
+  ]
+}

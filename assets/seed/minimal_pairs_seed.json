@@ -1,0 +1,68 @@
+[
+  {
+    "id": "pair_01",
+    "wordA": "ship",
+    "wordB": "sheep",
+    "ipaA": "[ʃɪp]",
+    "ipaB": "[ʃiːp]",
+    "meaningA": "корабль",
+    "meaningB": "овечка",
+    "soundFocus": "[ɪ] vs [iː]",
+    "tip": "В слове sheep долгий звук [iː], улыбнись шире при произношении!"
+  },
+  {
+    "id": "pair_02",
+    "wordA": "bad",
+    "wordB": "bed",
+    "ipaA": "[bæd]",
+    "ipaB": "[bed]",
+    "meaningA": "плохой",
+    "meaningB": "кровать",
+    "soundFocus": "[æ] vs [e]",
+    "tip": "Звук [æ] широкий как у яблока (apple), а [e] короткий и спокойный."
+  },
+  {
+    "id": "pair_03",
+    "wordA": "tree",
+    "wordB": "three",
+    "ipaA": "[triː]",
+    "ipaB": "[θriː]",
+    "meaningA": "дерево",
+    "meaningB": "три",
+    "soundFocus": "[t] vs [θ]",
+    "tip": "В three кончик языка между зубами [θ], не путай с обычным [t]!"
+  },
+  {
+    "id": "pair_04",
+    "wordA": "pull",
+    "wordB": "pool",
+    "ipaA": "[pʊl]",
+    "ipaB": "[puːl]",
+    "meaningA": "тянуть",
+    "meaningB": "бассейн",
+    "soundFocus": "[ʊ] vs [uː]",
+    "tip": "В pool долгий звук губ трубочкой [uː], а в pull — краткий ненапряженный [ʊ]."
+  },
+  {
+    "id": "pair_05",
+    "wordA": "cat",
+    "wordB": "cut",
+    "ipaA": "[kæt]",
+    "ipaB": "[kʌt]",
+    "meaningA": "кот",
+    "meaningB": "резать",
+    "soundFocus": "[æ] vs [ʌ]",
+    "tip": "Звук [ʌ] быстрый гортанный 'ах', а [æ] плоский и широкий."
+  },
+  {
+    "id": "pair_06",
+    "wordA": "live",
+    "wordB": "leave",
+    "ipaA": "[lɪv]",
+    "ipaB": "[liːv]",
+    "meaningA": "жить",
+    "meaningB": "уходить",
+    "soundFocus": "[ɪ] vs [iː]",
+    "tip": "Live произносится кратко [lɪv], а leave — протяжно с чистым [liːv]."
+  }
+]

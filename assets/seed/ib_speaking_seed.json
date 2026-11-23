@@ -1,0 +1,75 @@
+[
+  {
+    "id": "speak_01",
+    "title": "Eco-Club School Garden",
+    "globalContext": "Globalization and sustainability",
+    "topic": "Environment and Community",
+    "imageEmoji": "🌱🧑‍🌾🌻",
+    "description": "Children planting sunflowers and vegetables in a school garden, smiling and sharing tools.",
+    "prepTimeSeconds": 60,
+    "speakTimeSeconds": 90,
+    "guidingQuestions": [
+      "What can you see in the foreground and background of this picture?",
+      "What activities are the students engaged in?",
+      "Why is growing food at school beneficial for the environment?",
+      "How does this connect to our responsibility for nature?"
+    ],
+    "phraseBank": [
+      "In the foreground, I can see...",
+      "In the background, there is / are...",
+      "On the left-hand side, a boy is...",
+      "They seem to be very enthusiastic because...",
+      "For instance, planting trees helps to...",
+      "In my opinion, this shows great teamwork."
+    ],
+    "sampleAnswer": "In the picture, I can see a group of cheerful students working in a green school garden. In the foreground, two children are planting bright sunflowers into rich soil. In the background, there are wooden boxes with fresh vegetables. I believe this activity is important because it teaches us how to protect our planet and grow healthy food."
+  },
+  {
+    "id": "speak_02",
+    "title": "International Cultural Fair",
+    "globalContext": "Identities and relationships",
+    "topic": "Traditions and Friendship",
+    "imageEmoji": "🎪🌍🍱",
+    "description": "Teenagers in traditional costumes sharing food and playing national musical instruments.",
+    "prepTimeSeconds": 60,
+    "speakTimeSeconds": 90,
+    "guidingQuestions": [
+      "Who are the people in the picture and what are they wearing?",
+      "What kind of celebration or festival is taking place?",
+      "Why is it valuable to learn about other cultures and traditions?",
+      "How do people show respect and curiosity for diversity?"
+    ],
+    "phraseBank": [
+      "At first glance, this image portrays...",
+      "The people appear to be celebrating...",
+      "We can notice different cultural symbols, such as...",
+      "Furthermore, sharing traditional meals brings...",
+      "From my perspective, understanding cultures builds friendship."
+    ],
+    "sampleAnswer": "This picture portrays an international school festival. In the center, students are wearing colourful traditional costumes from different countries. On the right, someone is offering delicious national treats. This festival is valuable because celebrating our diversity helps young people understand and respect each other."
+  },
+  {
+    "id": "speak_03",
+    "title": "Robotics & AI Innovation Lab",
+    "globalContext": "Scientific and technical innovation",
+    "topic": "Modern Technology & Future",
+    "imageEmoji": "🤖💻🚀",
+    "description": "Students testing a smart wheeled robot using tablets and coding blocks.",
+    "prepTimeSeconds": 60,
+    "speakTimeSeconds": 90,
+    "guidingQuestions": [
+      "What technological tools and devices are visible in the laboratory?",
+      "How are the teenagers collaborating to solve a problem?",
+      "In what ways can robots assist people in daily life and science?",
+      "What skills are needed to be a good inventor today?"
+    ],
+    "phraseBank": [
+      "The setting appears to be a modern robotics workshop...",
+      "In the middle of the table, a wheeled robot is...",
+      "The students are focused on debugging code on their tablets...",
+      "As a result of their collaboration...",
+      "To sum up, technological innovation inspires young creators."
+    ],
+    "sampleAnswer": "In this image, students are experimenting in a high-tech school laboratory. A smart robot is positioned on the test track while two teammates adjust parameters on a tablet. In my view, learning robotics develops critical thinking and prepares students to invent technologies that will help humanity in the future."
+  }
+]

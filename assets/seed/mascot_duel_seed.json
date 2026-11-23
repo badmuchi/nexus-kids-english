@@ -1,0 +1,142 @@
+[
+  {
+    "id": "q01",
+    "prompt": "V2 (Past Simple) от глагола 'buy':",
+    "options": ["bought", "buyed", "brought", "bout"],
+    "correctIndex": 0,
+    "type": "irregular_verb"
+  },
+  {
+    "id": "q02",
+    "prompt": "Как переводится слово 'ancient'?",
+    "options": ["современный", "древний", "быстрый", "опасный"],
+    "correctIndex": 1,
+    "type": "vocab"
+  },
+  {
+    "id": "q03",
+    "prompt": "V3 (Participle II) от глагола 'speak':",
+    "options": ["spoke", "speaked", "spoken", "speaking"],
+    "correctIndex": 2,
+    "type": "irregular_verb"
+  },
+  {
+    "id": "q04",
+    "prompt": "Какой маркер времени указывает на Present Continuous?",
+    "options": ["yesterday", "every day", "at the moment", "already"],
+    "correctIndex": 2,
+    "type": "tense_marker"
+  },
+  {
+    "id": "q05",
+    "prompt": "V2 от глагола 'catch':",
+    "options": ["catched", "caught", "cot", "cought"],
+    "correctIndex": 1,
+    "type": "irregular_verb"
+  },
+  {
+    "id": "q06",
+    "prompt": "Перевод слова 'gleaming':",
+    "options": ["темный", "мерцающий", "грустный", "пустой"],
+    "correctIndex": 1,
+    "type": "vocab"
+  },
+  {
+    "id": "q07",
+    "prompt": "V2 от глагола 'swim':",
+    "options": ["swum", "swammed", "swam", "swimmed"],
+    "correctIndex": 2,
+    "type": "irregular_verb"
+  },
+  {
+    "id": "q08",
+    "prompt": "Какой союз выражает контраст (Contrast)?",
+    "options": ["furthermore", "however", "therefore", "because"],
+    "correctIndex": 1,
+    "type": "vocab"
+  },
+  {
+    "id": "q09",
+    "prompt": "V3 от глагола 'choose':",
+    "options": ["chose", "chosen", "choosed", "choicing"],
+    "correctIndex": 1,
+    "type": "irregular_verb"
+  },
+  {
+    "id": "q10",
+    "prompt": "Что означает фраза 'in the foreground'?",
+    "options": ["на заднем плане", "на переднем плане", "справа в углу", "сверху"],
+    "correctIndex": 1,
+    "type": "vocab"
+  },
+  {
+    "id": "q11",
+    "prompt": "V2 от глагола 'think':",
+    "options": ["thought", "thanked", "thunk", "thinked"],
+    "correctIndex": 0,
+    "type": "irregular_verb"
+  },
+  {
+    "id": "q12",
+    "prompt": "Маркер времени 'since 2020' часто используется с:",
+    "options": ["Past Simple", "Present Perfect", "Future Simple", "Past Continuous"],
+    "correctIndex": 1,
+    "type": "tense_marker"
+  },
+  {
+    "id": "q13",
+    "prompt": "V3 от глагола 'ring':",
+    "options": ["rang", "rung", "ringed", "ringing"],
+    "correctIndex": 1,
+    "type": "irregular_verb"
+  },
+  {
+    "id": "q14",
+    "prompt": "Слово 'curious' означает:",
+    "options": ["любознательный", "злой", "тихий", "уставший"],
+    "correctIndex": 0,
+    "type": "vocab"
+  },
+  {
+    "id": "q15",
+    "prompt": "V2 от глагола 'bring':",
+    "options": ["brang", "brought", "bringed", "brung"],
+    "correctIndex": 1,
+    "type": "irregular_verb"
+  },
+  {
+    "id": "q16",
+    "prompt": "Какое слово соединяет причину и следствие?",
+    "options": ["moreover", "as a result", "nevertheless", "besides"],
+    "correctIndex": 1,
+    "type": "vocab"
+  },
+  {
+    "id": "q17",
+    "prompt": "V3 от глагола 'grow':",
+    "options": ["grew", "growed", "grown", "growen"],
+    "correctIndex": 2,
+    "type": "irregular_verb"
+  },
+  {
+    "id": "q18",
+    "prompt": "Форма множественного числа слова 'tooth':",
+    "options": ["tooths", "teeth", "toothes", "teeths"],
+    "correctIndex": 1,
+    "type": "vocab"
+  },
+  {
+    "id": "q19",
+    "prompt": "V2 от глагола 'teach':",
+    "options": ["teached", "taught", "tocht", "tought"],
+    "correctIndex": 1,
+    "type": "irregular_verb"
+  },
+  {
+    "id": "q20",
+    "prompt": "Слово 'therefore' переводится как:",
+    "options": ["однако", "поэтому / следовательно", "вдобавок", "сначала"],
+    "correctIndex": 1,
+    "type": "vocab"
+  }
+]

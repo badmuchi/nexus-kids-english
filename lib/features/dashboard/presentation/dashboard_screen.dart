@@ -41,6 +41,10 @@ import '../../verbs_arena/presentation/verbs_event.dart';
 import '../../vpr/presentation/screens/vpr_simulator_screen.dart';
 import '../../vpr/presentation/vpr_bloc.dart';
 import '../../vpr/presentation/vpr_event.dart';
+import '../../ib_speaking/presentation/screens/ib_speaking_studio_screen.dart';
+import '../../ib_writing/presentation/screens/ib_writing_studio_screen.dart';
+import '../../reading_lab/presentation/screens/reading_lab_screen.dart';
+import '../../mascot_duel/presentation/screens/mascot_duel_screen.dart';
 import 'screens/exam_readiness_report_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -347,6 +351,82 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (_) => VprSimulatorScreen(audioService: widget.audioService),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 14),
+        Row(
+          children: [
+            Expanded(
+              child: _buildActionTile(
+                context,
+                title: '🎙️ IB Speaking\nStudio (Crit. C)',
+                subtitle: 'Таймер и банк речевых клише',
+                icon: Icons.mic,
+                color: const Color(0xFF9333EA),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => IbSpeakingStudioScreen(audioService: widget.audioService),
+                    ),
+                  );
+                },
+              ),
+            ),
+            const SizedBox(width: 14),
+            Expanded(
+              child: _buildActionTile(
+                context,
+                title: '✍️ IB Writing\nStudio (Crit. D)',
+                subtitle: 'Трекер связующих слов',
+                icon: Icons.draw,
+                color: const Color(0xFFEA580C),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => const IbWritingStudioScreen(),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 14),
+        Row(
+          children: [
+            Expanded(
+              child: _buildActionTile(
+                context,
+                title: '📚 Reading Lab\nСмысловое чтение',
+                subtitle: 'Рассказы, аудио и квиз',
+                icon: Icons.auto_stories,
+                color: const Color(0xFF0D9488),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => ReadingLabScreen(audioService: widget.audioService),
+                    ),
+                  );
+                },
+              ),
+            ),
+            const SizedBox(width: 14),
+            Expanded(
+              child: _buildActionTile(
+                context,
+                title: '⚔️ Дуэль со Спарки\nБлиц 60 сек',
+                subtitle: 'Битва на скорость реакции',
+                icon: Icons.sports_esports,
+                color: const Color(0xFFDC2626),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => MascotDuelScreen(audioService: widget.audioService),
                     ),
                   );
                 },

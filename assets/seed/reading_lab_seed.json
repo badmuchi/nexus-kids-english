@@ -1,0 +1,119 @@
+[
+  {
+    "id": "story_01",
+    "title": "The Mystery of the Old Clock Tower",
+    "grade": 5,
+    "theme": "Adventure & History",
+    "coverEmoji": "🕰️🦉🗝️",
+    "summary": "Leo and Maya discover an antique silver key behind the pendulum of their town's medieval clock tower.",
+    "paragraphs": [
+      "High above the town square stood the old clock tower. For two hundred years, its heavy bronze bells rang every hour, guiding the townspeople through rain and sunshine.",
+      "One rainy afternoon, Leo and his sister Maya climbed the spiral wooden staircase. Behind the ancient pendulum, Maya spotted something gleaming in the shadows: a curious silver key wrapped in velvet cloth.",
+      "Engraved upon the key were the words: 'To those who seek knowledge with an open heart.' Suddenly, the tower clock began to chime three o'clock, and a secret wooden panel beneath the gears slowly clicked open."
+    ],
+    "glossary": [
+      { "word": "pendulum", "ipa": "[ˈpendʒələm]", "meaning": "маятник (качающийся стержень часов)" },
+      { "word": "gleaming", "ipa": "[ˈɡliːmɪŋ]", "meaning": "мерцающий, поблескивающий" },
+      { "word": "engraved", "ipa": "[ɪnˈɡreɪvd]", "meaning": "выгравированный" },
+      { "word": "chime", "ipa": "[tʃaɪm]", "meaning": "бить, издавать звон (о курантах)" }
+    ],
+    "questions": [
+      {
+        "question": "How long had the clock tower bells guided the townspeople?",
+        "options": ["For fifty years", "For two hundred years", "For ten years", "Only since last month"],
+        "correctIndex": 1,
+        "explanation": "В первом абзаце сказано: 'For two hundred years, its heavy bronze bells rang every hour'."
+      },
+      {
+        "question": "Where did Maya spot the gleaming object?",
+        "options": ["Inside her school bag", "Under the town fountain", "Behind the ancient pendulum", "On the clock tower roof"],
+        "correctIndex": 2,
+        "explanation": "Во втором абзаце: 'Behind the ancient pendulum, Maya spotted something gleaming in the shadows'."
+      },
+      {
+        "question": "What happened right after the clock chimed three o'clock?",
+        "options": ["A secret wooden panel clicked open", "The key turned into dust", "The staircase collapsed", "The rain stopped immediately"],
+        "correctIndex": 0,
+        "explanation": "В третьем абзаце: '...and a secret wooden panel beneath the gears slowly clicked open'."
+      }
+    ]
+  },
+  {
+    "id": "story_02",
+    "title": "Eco-Warriors of Green Valley",
+    "grade": 6,
+    "theme": "Ecology & Sustainability",
+    "coverEmoji": "🏞️🌲🦊",
+    "summary": "A group of schoolchildren organize a solar-powered cleanup drone to protect their local mountain stream.",
+    "paragraphs": [
+      "Green Valley was famous for its crystal-clear stream and wild apple orchards. However, tourists often left plastic bottles and candy wrappers along the hiking trails, endangering the native wildlife.",
+      "Determined to protect their home, four classmates designed 'Aqua-Rover' — a compact aquatic drone powered by solar panels. The rover collected floating rubbish and sorted it automatically into recyclable compartments.",
+      "Within two weeks, the local wildlife returned to the riverbanks, including a shy red fox that the students nicknamed Sparky. The mayor awarded the young inventors a green medal for environmental citizenship."
+    ],
+    "glossary": [
+      { "word": "orchards", "ipa": "[ˈɔːtʃədz]", "meaning": "фруктовые сады" },
+      { "word": "endangering", "ipa": "[ɪnˈdeɪndʒərɪŋ]", "meaning": "подвергающий опасности" },
+      { "word": "aquatic", "ipa": "[əˈkwætɪk]", "meaning": "водный, обитающий в воде" },
+      { "word": "citizenship", "ipa": "[ˈsɪtɪznʃɪp]", "meaning": "гражданская позиция, гражданство" }
+    ],
+    "questions": [
+      {
+        "question": "What was harming the environment in Green Valley?",
+        "options": ["A volcanic eruption", "Plastic bottles and trash left by tourists", "Too many wild animals", "A noisy factory"],
+        "correctIndex": 1,
+        "explanation": "Текст отмечает: 'tourists often left plastic bottles and candy wrappers along the hiking trails'."
+      },
+      {
+        "question": "How was Aqua-Rover powered?",
+        "options": ["By gasoline engines", "By AAA batteries", "By solar panels", "By wind turbines only"],
+        "correctIndex": 2,
+        "explanation": "Во втором абзаце указано: 'a compact aquatic drone powered by solar panels'."
+      },
+      {
+        "question": "What animal returned to the riverbanks after the cleanup?",
+        "options": ["A brown bear", "A polar bear", "A red fox nicknamed Sparky", "A bald eagle"],
+        "correctIndex": 2,
+        "explanation": "В третьем абзаце: 'including a shy red fox that the students nicknamed Sparky'."
+      }
+    ]
+  },
+  {
+    "id": "story_03",
+    "title": "A Day in Space Camp",
+    "grade": 7,
+    "theme": "Science & Space",
+    "coverEmoji": "👨‍🚀🚀🪐",
+    "summary": "Young cadets simulate an emergency lunar landing and learn how astronauts communicate in zero gravity.",
+    "paragraphs": [
+      "The zero-gravity simulator felt like floating in a warm ocean of stars. Cadets wore lightweight pressurized suits equipped with radio headsets to coordinate their maneuvers with mission control.",
+      "Their mission scenario was clear: navigate an unmanned lunar rover across the rocky terrain of crater Copernicus before nightfall, when temperatures would plummet to minus 130 degrees Celsius.",
+      "Through swift communication and mutual trust, the team reprogrammed the navigation thrusters with five minutes to spare. Mission control cheered, declaring them certified junior space explorers."
+    ],
+    "glossary": [
+      { "word": "pressurized", "ipa": "[ˈpreʃəraɪzd]", "meaning": "герметичный, под давлением" },
+      { "word": "maneuvers", "ipa": "[məˈnuːvəz]", "meaning": "маневры, действия" },
+      { "word": "plummet", "ipa": "[ˈplʌmɪt]", "meaning": "резко падать, стремительно опускаться" },
+      { "word": "thrusters", "ipa": "[ˈθrʌstəz]", "meaning": "маневровые двигатели" }
+    ],
+    "questions": [
+      {
+        "question": "What were the cadets' pressurized suits equipped with?",
+        "options": ["Cameras and umbrellas", "Radio headsets to coordinate with mission control", "Solar wings", "Laser pointers"],
+        "correctIndex": 1,
+        "explanation": "Первый абзац: 'equipped with radio headsets to coordinate their maneuvers with mission control'."
+      },
+      {
+        "question": "Why did the rover need to reach its destination before nightfall?",
+        "options": ["Because aliens arrive at night", "Because temperatures plummet to -130°C", "Because the battery expires at lunch", "Because the camp closes early"],
+        "correctIndex": 1,
+        "explanation": "Второй абзац: 'when temperatures would plummet to minus 130 degrees Celsius'."
+      },
+      {
+        "question": "How much time did the cadets have left when they finished reprogramming?",
+        "options": ["Five minutes to spare", "Exactly one hour", "Ten seconds", "Zero seconds"],
+        "correctIndex": 0,
+        "explanation": "Третий абзац: 'reprogrammed the navigation thrusters with five minutes to spare'."
+      }
+    ]
+  }
+]

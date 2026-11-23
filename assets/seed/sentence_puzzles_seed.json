@@ -1,0 +1,56 @@
+[
+  {
+    "id": "puz_01",
+    "grade": 5,
+    "grammarTopic": "Present Simple vs Continuous",
+    "translation": "Сейчас Том читает интересную книгу о космосе.",
+    "words": ["Tom", "is", "reading", "an", "interesting", "book", "about", "space", "now."],
+    "correctSentence": "Tom is reading an interesting book about space now.",
+    "explanation": "Слово-маркер 'now' указывает на Present Continuous (to be + V-ing: is reading)."
+  },
+  {
+    "id": "puz_02",
+    "grade": 5,
+    "grammarTopic": "Past Simple",
+    "translation": "Вчера они пошли в музей робототехники.",
+    "words": ["They", "went", "to", "the", "robotics", "museum", "yesterday."],
+    "correctSentence": "They went to the robotics museum yesterday.",
+    "explanation": "'Yesterday' требует Past Simple. Вторая форма глагола go — went."
+  },
+  {
+    "id": "puz_03",
+    "grade": 6,
+    "grammarTopic": "Present Perfect",
+    "translation": "Мы уже закончили наш школьный проект.",
+    "words": ["We", "have", "already", "finished", "our", "school", "project."],
+    "correctSentence": "We have already finished our school project.",
+    "explanation": "Маркер 'already' стоит между have и V3 (have already finished)."
+  },
+  {
+    "id": "puz_04",
+    "grade": 6,
+    "grammarTopic": "Modal Verbs",
+    "translation": "Ты должен слушать внимательно на уроке.",
+    "words": ["You", "must", "listen", "carefully", "during", "the", "lesson."],
+    "correctSentence": "You must listen carefully during the lesson.",
+    "explanation": "После модального глагола must частица 'to' не ставится (must listen)."
+  },
+  {
+    "id": "puz_05",
+    "grade": 7,
+    "grammarTopic": "First Conditional",
+    "translation": "Если завтра пойдет дождь, мы останемся дома.",
+    "words": ["If", "it", "rains", "tomorrow,", "we", "will", "stay", "at", "home."],
+    "correctSentence": "If it rains tomorrow, we will stay at home.",
+    "explanation": "В условной части (If) используем Present Simple (rains), в главной — Future Simple (will stay)."
+  },
+  {
+    "id": "puz_06",
+    "grade": 7,
+    "grammarTopic": "Passive Voice",
+    "translation": "Эта крепость была построена 500 лет назад.",
+    "words": ["This", "fortress", "was", "built", "500", "years", "ago."],
+    "correctSentence": "This fortress was built 500 years ago.",
+    "explanation": "Past Simple Passive: was/were + V3 (was built)."
+  }
+]

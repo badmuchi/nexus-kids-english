@@ -21,9 +21,18 @@ import 'features/ib_myp/data/repositories/drift_ib_repository.dart';
 import 'features/ib_myp/domain/repositories/ib_repository.dart';
 import 'features/ib_myp/presentation/ib_bloc.dart';
 import 'features/ib_myp/presentation/ib_event.dart';
+import 'features/ib_speaking/data/repositories/local_ib_speaking_repository.dart';
+import 'features/ib_speaking/domain/repositories/ib_speaking_repository.dart';
+import 'features/ib_speaking/presentation/ib_speaking_bloc.dart';
+import 'features/ib_writing/data/repositories/local_ib_writing_repository.dart';
+import 'features/ib_writing/domain/repositories/ib_writing_repository.dart';
+import 'features/ib_writing/presentation/ib_writing_bloc.dart';
 import 'features/listening_lab/data/repositories/local_listening_lab_repository.dart';
 import 'features/listening_lab/domain/repositories/listening_lab_repository.dart';
 import 'features/listening_lab/presentation/listening_lab_bloc.dart';
+import 'features/mascot_duel/data/repositories/local_mascot_duel_repository.dart';
+import 'features/mascot_duel/domain/repositories/mascot_duel_repository.dart';
+import 'features/mascot_duel/presentation/mascot_duel_bloc.dart';
 import 'features/mascot_wardrobe/data/repositories/local_mascot_wardrobe_repository.dart';
 import 'features/mascot_wardrobe/domain/repositories/mascot_wardrobe_repository.dart';
 import 'features/mascot_wardrobe/presentation/mascot_wardrobe_bloc.dart';
@@ -34,6 +43,9 @@ import 'features/oge_exam/presentation/oge_exam_bloc.dart';
 import 'features/oge_trainer/data/repositories/drift_oge_repository.dart';
 import 'features/oge_trainer/domain/repositories/oge_repository.dart';
 import 'features/oge_trainer/presentation/oge_bloc.dart';
+import 'features/reading_lab/data/repositories/local_reading_lab_repository.dart';
+import 'features/reading_lab/domain/repositories/reading_lab_repository.dart';
+import 'features/reading_lab/presentation/reading_lab_bloc.dart';
 import 'features/sentence_builder/data/repositories/local_sentence_builder_repository.dart';
 import 'features/sentence_builder/domain/repositories/sentence_builder_repository.dart';
 import 'features/sentence_builder/presentation/sentence_builder_bloc.dart';
@@ -79,6 +91,10 @@ void main() async {
   final sentenceRepository = LocalSentenceBuilderRepository();
   final listeningLabRepository = LocalListeningLabRepository();
   final wardrobeRepository = LocalMascotWardrobeRepository();
+  final ibSpeakingRepository = LocalIbSpeakingRepository();
+  final ibWritingRepository = LocalIbWritingRepository();
+  final readingLabRepository = LocalReadingLabRepository();
+  final mascotDuelRepository = LocalMascotDuelRepository();
 
   runApp(
     MyApp(
@@ -96,6 +112,10 @@ void main() async {
       sentenceRepository: sentenceRepository,
       listeningLabRepository: listeningLabRepository,
       wardrobeRepository: wardrobeRepository,
+      ibSpeakingRepository: ibSpeakingRepository,
+      ibWritingRepository: ibWritingRepository,
+      readingLabRepository: readingLabRepository,
+      mascotDuelRepository: mascotDuelRepository,
     ),
   );
 }
@@ -115,6 +135,10 @@ class MyApp extends StatelessWidget {
   final SentenceBuilderRepository sentenceRepository;
   final ListeningLabRepository listeningLabRepository;
   final MascotWardrobeRepository wardrobeRepository;
+  final IbSpeakingRepository ibSpeakingRepository;
+  final IbWritingRepository ibWritingRepository;
+  final ReadingLabRepository readingLabRepository;
+  final MascotDuelRepository mascotDuelRepository;
 
   const MyApp({
     super.key,
@@ -132,6 +156,10 @@ class MyApp extends StatelessWidget {
     required this.sentenceRepository,
     required this.listeningLabRepository,
     required this.wardrobeRepository,
+    required this.ibSpeakingRepository,
+    required this.ibWritingRepository,
+    required this.readingLabRepository,
+    required this.mascotDuelRepository,
   });
 
   @override
@@ -152,6 +180,10 @@ class MyApp extends StatelessWidget {
         RepositoryProvider<SentenceBuilderRepository>.value(value: sentenceRepository),
         RepositoryProvider<ListeningLabRepository>.value(value: listeningLabRepository),
         RepositoryProvider<MascotWardrobeRepository>.value(value: wardrobeRepository),
+        RepositoryProvider<IbSpeakingRepository>.value(value: ibSpeakingRepository),
+        RepositoryProvider<IbWritingRepository>.value(value: ibWritingRepository),
+        RepositoryProvider<ReadingLabRepository>.value(value: readingLabRepository),
+        RepositoryProvider<MascotDuelRepository>.value(value: mascotDuelRepository),
       ],
       child: MultiBlocProvider(
         providers: [
@@ -187,6 +219,18 @@ class MyApp extends StatelessWidget {
           ),
           BlocProvider<MascotWardrobeBloc>(
             create: (_) => MascotWardrobeBloc(repository: wardrobeRepository)..add(const LoadWardrobeEvent()),
+          ),
+          BlocProvider<IbSpeakingBloc>(
+            create: (_) => IbSpeakingBloc(repository: ibSpeakingRepository),
+          ),
+          BlocProvider<IbWritingBloc>(
+            create: (_) => IbWritingBloc(repository: ibWritingRepository),
+          ),
+          BlocProvider<ReadingLabBloc>(
+            create: (_) => ReadingLabBloc(repository: readingLabRepository),
+          ),
+          BlocProvider<MascotDuelBloc>(
+            create: (_) => MascotDuelBloc(repository: mascotDuelRepository),
           ),
         ],
         child: MaterialApp(

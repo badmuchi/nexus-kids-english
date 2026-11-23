@@ -1,0 +1,50 @@
+[
+  {
+    "id": "write_01",
+    "format": "Informal Email",
+    "title": "Email to Pen Pal: My School Eco-Project",
+    "globalContext": "Globalization and sustainability",
+    "instructions": "Write an email (80-120 words) to your exchange friend Alex. Describe your school eco-project, explain what you did, and invite Alex to participate.",
+    "minWords": 80,
+    "maxWords": 120,
+    "requiredPrompts": [
+      "Friendly greeting and inquiry about friend's news",
+      "Description of the eco-project (recycling, tree planting)",
+      "Use at least 3 cohesive devices (e.g. 'because', 'furthermore', 'however')",
+      "Warm closing and question for reply"
+    ],
+    "sampleTemplate": "Dear Alex,\n\nHow are things going? I hope you are having a wonderful week.\n\nI am writing to share exciting news about our school eco-club! Last week, we launched a plastic recycling challenge. In addition, our class planted ten oak saplings near the sports ground. However, sorting paper was more difficult than we expected because many bins were mixed up.\n\nAre there any green projects at your school? Let me know soon!\n\nBest wishes,\nSam"
+  },
+  {
+    "id": "write_02",
+    "format": "School Blog Post",
+    "title": "Blog: Top 3 Habits of a Mindful Student",
+    "globalContext": "Identities and relationships",
+    "instructions": "Write a blog post (80-120 words) for the school website with tips on keeping balanced, healthy, and happy during school exams.",
+    "minWords": 80,
+    "maxWords": 120,
+    "requiredPrompts": [
+      "Catchy headline and introductory hook",
+      "Three clear tips (sleep, hydration, hobbies)",
+      "Cohesive connectors (e.g. 'firstly', 'moreover', 'as a result')",
+      "Concluding call-to-action for readers"
+    ],
+    "sampleTemplate": "Finding Balance During Study Weeks!\n\nSchool life can be busy, but staying healthy is our number one priority. Firstly, make sure you sleep at least eight hours every night so your brain can recharge. Moreover, drink plenty of water and take fresh-air breaks every hour. Finally, remember to enjoy your favorite hobby because relaxation keeps your mind sharp.\n\nWhat is your favorite way to unwind? Share your thoughts below!"
+  },
+  {
+    "id": "write_03",
+    "format": "Campaign Poster",
+    "title": "Poster: Save Energy at School!",
+    "globalContext": "Scientific and technical innovation",
+    "instructions": "Draft text for an awareness poster (70-100 words) encouraging classmates to turn off lights, shut computers down, and save electricity.",
+    "minWords": 70,
+    "maxWords": 100,
+    "requiredPrompts": [
+      "Catchy slogan or campaign motto",
+      "Why energy conservation matters",
+      "Simple action steps every student can take right now",
+      "Inspiring final statement"
+    ],
+    "sampleTemplate": "Small Actions, Big Impact: Power Down!\n\nDid you know that leaving monitors on standby wastes tons of electricity every year? Therefore, we must act together! First, switch off the lights whenever leaving an empty classroom. In addition, remember to unplug chargers when your tablet is full. As a result, our school can reduce its carbon footprint.\n\nEvery switch counts. Turn it off today!"
+  }
+]
