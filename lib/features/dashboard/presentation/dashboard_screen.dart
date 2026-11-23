@@ -123,6 +123,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            _buildMascotCard(context),
+            const SizedBox(height: 16),
+            _buildKidsArenaSection(context),
+            const SizedBox(height: 20),
             _buildHeroBanner(),
             const SizedBox(height: 16),
             _buildFullExamBanner(context),
@@ -153,6 +157,204 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildMascotCard(BuildContext context) {
+    return BlocBuilder<MascotWardrobeBloc, MascotWardrobeState>(
+      builder: (context, state) {
+        final equippedEmoji = state is MascotWardrobeLoaded && state.equippedItem != null
+            ? state.equippedItem!.emoji
+            : '🎧';
+
+        return Card(
+          elevation: 2,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+            side: BorderSide(color: AppTheme.primaryColor.withValues(alpha: 0.15)),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              children: [
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        widget.audioService.speakText('Hello! Keep exploring, listening and speaking every day!');
+                      },
+                      borderRadius: BorderRadius.circular(30),
+                      child: Container(
+                        width: 58,
+                        height: 58,
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            colors: [Color(0xFFFF8A00), Color(0xFFE52E71)],
+                          ),
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: const Color(0xFFFF8A00).withValues(alpha: 0.3),
+                              blurRadius: 8,
+                              offset: const Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: const Center(child: Text('🦊', style: TextStyle(fontSize: 32))),
+                      ),
+                    ),
+                    Positioned(
+                      top: 0,
+                      right: 0,
+                      child: Text(equippedEmoji, style: const TextStyle(fontSize: 16)),
+                    ),
+                  ],
+                ),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          const Text(
+                            'Лисёнок Спарки',
+                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                          ),
+                          const Spacer(),
+                          TextButton(
+                            style: TextButton.styleFrom(
+                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                              minimumSize: Size.zero,
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            ),
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(builder: (_) => const MascotWardrobeScreen()),
+                              );
+                            },
+                            child: const Text('Гардероб ➔', style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        'Привет! Готов к тренировке глаголов или новому пазлу предложений?',
+                        style: TextStyle(fontSize: 12, color: Colors.grey.shade700, height: 1.3),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildKidsArenaSection(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text(
+              '🎮 Интерактивная Арена (5–7 класс):',
+              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+            ),
+            TextButton.icon(
+              icon: const Icon(Icons.military_tech, size: 16, color: AppTheme.accentColor),
+              label: const Text('Бейджи', style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: AppTheme.accentColor)),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => const AchievementsScreen()),
+                );
+              },
+            ),
+          ],
+        ),
+        const SizedBox(height: 10),
+        Row(
+          children: [
+            Expanded(
+              child: _buildActionTile(
+                context,
+                title: '⚡ Арена глаголов\n(V1 → V2 → V3)',
+                subtitle: 'Атлас рифмовок и блиц-квиз',
+                icon: Icons.flash_on,
+                color: const Color(0xFFD97706),
+                onTap: () {
+                  context.read<VerbsBloc>().add(const LoadAllVerbsEvent());
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => VerbsAtlasScreen(audioService: widget.audioService),
+                    ),
+                  );
+                },
+              ),
+            ),
+            const SizedBox(width: 14),
+            Expanded(
+              child: _buildActionTile(
+                context,
+                title: '🧩 Пазл фраз\nSentence Builder',
+                subtitle: 'Порядок слов без ошибок',
+                icon: Icons.extension,
+                color: const Color(0xFF4F46E5),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => SentenceBuilderScreen(audioService: widget.audioService),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 14),
+        Row(
+          children: [
+            Expanded(
+              child: _buildActionTile(
+                context,
+                title: '🎯 Minimal Pairs\nСлуховая лаба',
+                subtitle: 'Sheep / Ship и звуки',
+                icon: Icons.hearing,
+                color: const Color(0xFF059669),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => MinimalPairsScreen(audioService: widget.audioService),
+                    ),
+                  );
+                },
+              ),
+            ),
+            const SizedBox(width: 14),
+            Expanded(
+              child: _buildActionTile(
+                context,
+                title: '🎒 Симулятор ВПР\n5, 6, 7 классы',
+                subtitle: 'Все 4 задания ВПР РФ',
+                icon: Icons.school,
+                color: const Color(0xFF0284C7),
+                onTap: () {
+                  context.read<VprBloc>().add(const LoadVprTasksEvent(grade: 5));
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => VprSimulatorScreen(audioService: widget.audioService),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 
