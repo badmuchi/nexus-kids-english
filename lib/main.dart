@@ -23,6 +23,9 @@ import 'features/oge_trainer/presentation/oge_bloc.dart';
 import 'features/srs/data/repositories/drift_srs_repository.dart';
 import 'features/srs/domain/repositories/srs_repository.dart';
 import 'features/srs/presentation/srs_bloc.dart';
+import 'features/vpr/data/repositories/local_vpr_repository.dart';
+import 'features/vpr/domain/repositories/vpr_repository.dart';
+import 'features/vpr/presentation/vpr_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -49,6 +52,7 @@ void main() async {
   final ibRepository = DriftIbRepository(database);
   final srsRepository = DriftSrsRepository(database);
   final goalsRepository = DriftGoalsRepository(database);
+  final vprRepository = LocalVprRepository();
 
   runApp(
     MyApp(
@@ -59,6 +63,7 @@ void main() async {
       ibRepository: ibRepository,
       srsRepository: srsRepository,
       goalsRepository: goalsRepository,
+      vprRepository: vprRepository,
     ),
   );
 }
@@ -71,6 +76,7 @@ class MyApp extends StatelessWidget {
   final IbRepository ibRepository;
   final SrsRepository srsRepository;
   final GoalsRepository goalsRepository;
+  final VprRepository vprRepository;
 
   const MyApp({
     super.key,
@@ -81,6 +87,7 @@ class MyApp extends StatelessWidget {
     required this.ibRepository,
     required this.srsRepository,
     required this.goalsRepository,
+    required this.vprRepository,
   });
 
   @override
@@ -94,6 +101,7 @@ class MyApp extends StatelessWidget {
         RepositoryProvider<IbRepository>.value(value: ibRepository),
         RepositoryProvider<SrsRepository>.value(value: srsRepository),
         RepositoryProvider<GoalsRepository>.value(value: goalsRepository),
+        RepositoryProvider<VprRepository>.value(value: vprRepository),
       ],
       child: MultiBlocProvider(
         providers: [
@@ -109,9 +117,12 @@ class MyApp extends StatelessWidget {
           BlocProvider<SrsBloc>(
             create: (_) => SrsBloc(repository: srsRepository),
           ),
+          BlocProvider<VprBloc>(
+            create: (_) => VprBloc(repository: vprRepository),
+          ),
         ],
         child: MaterialApp(
-          title: 'English for Children • 13',
+          title: 'English for Kids & Teens',
           debugShowCheckedModeBanner: false,
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,

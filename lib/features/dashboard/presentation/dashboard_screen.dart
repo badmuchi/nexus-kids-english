@@ -19,6 +19,9 @@ import '../../oge_trainer/presentation/screens/oge_word_formation_screen.dart';
 import '../../srs/presentation/srs_bloc.dart';
 import '../../srs/presentation/srs_event.dart';
 import '../../srs/presentation/srs_screen.dart';
+import '../../vpr/presentation/screens/vpr_simulator_screen.dart';
+import '../../vpr/presentation/vpr_bloc.dart';
+import '../../vpr/presentation/vpr_event.dart';
 
 class DashboardScreen extends StatefulWidget {
   final HybridAudioPlaybackService audioService;
@@ -88,18 +91,99 @@ class _DashboardScreenState extends State<DashboardScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            _buildMascotCard(),
+            const SizedBox(height: 16),
             _buildHeroBanner(),
             const SizedBox(height: 20),
             _buildReadinessCard(),
             const SizedBox(height: 24),
             const Text(
-              'Разделы подготовки (ОГЭ + IB MYP):',
+              'Учебные модули (ВПР 5–7 + ОГЭ + IB MYP):',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 12),
             _buildGridTiles(context),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildMascotCard() {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: AppTheme.primaryColor.withValues(alpha: 0.15), width: 1.5),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.04),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          InkWell(
+            onTap: () {
+              widget.audioService.speakText('Awesome job! Keep practicing and you will master English like a champion!');
+            },
+            borderRadius: BorderRadius.circular(30),
+            child: Container(
+              width: 52,
+              height: 52,
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  colors: [Color(0xFFFF8A00), Color(0xFFE52E71)],
+                ),
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0xFFFF8A00).withValues(alpha: 0.3),
+                    blurRadius: 8,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
+              ),
+              child: const Center(child: Text('🦊', style: TextStyle(fontSize: 28))),
+            ),
+          ),
+          const SizedBox(width: 14),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    const Text(
+                      'Лисёнок Спарки',
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                    ),
+                    const SizedBox(width: 6),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                      decoration: BoxDecoration(
+                        color: AppTheme.primaryColor.withValues(alpha: 0.1),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: const Text(
+                        'Наставник',
+                        style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: AppTheme.primaryColor),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  'Привет! Жми на меня для бодрой озвучки или выбирай задания ВПР (5-7 класс) ниже!',
+                  style: TextStyle(fontSize: 12, color: Colors.grey.shade700, height: 1.3),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -233,6 +317,22 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget _buildGridTiles(BuildContext context) {
     return Column(
       children: [
+        _buildActionTile(
+          context,
+          title: '🎒 Симулятор ВПР (5–7 классы)',
+          subtitle: 'Чтение текста вслух, аудирование (True/False/Not Stated), matching и грамматика',
+          icon: Icons.school,
+          color: const Color(0xFF4F46E5),
+          onTap: () {
+            context.read<VprBloc>().add(const LoadVprTasksEvent(grade: 5));
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => VprSimulatorScreen(audioService: widget.audioService),
+              ),
+            );
+          },
+        ),
+        const SizedBox(height: 14),
         Row(
           children: [
             Expanded(
