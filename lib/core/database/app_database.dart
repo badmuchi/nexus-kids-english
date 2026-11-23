@@ -110,6 +110,32 @@ class UserProgressTable extends Table {
   Set<Column> get primaryKey => {id};
 }
 
+@DataClassName('UserBadgeRow')
+class UserBadges extends Table {
+  TextColumn get id => text()();
+  TextColumn get title => text()();
+  TextColumn get description => text()();
+  TextColumn get icon => text()();
+  TextColumn get category => text()();
+  BoolColumn get isUnlocked => boolean().withDefault(const Constant(false))();
+  DateTimeColumn get unlockedAt => dateTime().nullable()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+@DataClassName('ExamAttemptRow')
+class ExamAttempts extends Table {
+  TextColumn get id => text()();
+  IntColumn get scoreOutOf68 => integer()();
+  IntColumn get gradeMark => integer()();
+  IntColumn get durationSeconds => integer()();
+  DateTimeColumn get completedAt => dateTime()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
 @DriftDatabase(tables: [
   OgeGrammarTasks,
   OgeWordFormationTasks,
@@ -117,6 +143,8 @@ class UserProgressTable extends Table {
   SrsCards,
   StudyGoals,
   UserProgressTable,
+  UserBadges,
+  ExamAttempts,
 ])
 class AppDatabase extends _$AppDatabase {
   AppDatabase([QueryExecutor? e]) : super(e ?? driftDatabase(name: 'english_for_children_db'));
@@ -215,6 +243,27 @@ class AppDatabase extends _$AppDatabase {
     return row;
   }
 
+  // ---------------- Badges ----------------
+  Future<List<UserBadgeRow>> getAllBadges() => select(userBadges).get();
+
+  Future<void> unlockBadge(String badgeId) =>
+      (update(userBadges)..where((t) => t.id.equals(badgeId))).write(
+        UserBadgesCompanion(
+          isUnlocked: const Value(true),
+          unlockedAt: Value(DateTime.now()),
+        ),
+      );
+
+  // ---------------- Exam Attempts ----------------
+  Future<void> recordExamAttempt(ExamAttemptsCompanion attempt) =>
+      into(examAttempts).insert(attempt);
+
+  Future<List<ExamAttemptRow>> getRecentExamAttempts({int limit = 5}) =>
+      (select(examAttempts)
+            ..orderBy([(t) => OrderingTerm.desc(t.completedAt)])
+            ..limit(limit))
+          .get();
+
   // ---------------- Seed Initializer ----------------
   Future<void> seedDatabaseIfEmpty() async {
     final grammarCount = await countGrammarTasks();
@@ -224,6 +273,7 @@ class AppDatabase extends _$AppDatabase {
       await _seedIbUnits();
       await _seedSrsCards();
       await _seedGoals();
+      await _seedBadges();
       await getUserProgress();
     }
   }
@@ -331,6 +381,23 @@ class AppDatabase extends _$AppDatabase {
           unit: item['unit'] as String,
           deadlineDays: item['deadlineDays'] as int,
           isPrimary: Value(item['isPrimary'] as bool? ?? false),
+        ),
+      );
+    }
+  }
+
+  Future<void> _seedBadges() async {
+    final raw = await rootBundle.loadString('assets/seed/badges_seed.json');
+    final list = jsonDecode(raw) as List;
+    for (final item in list) {
+      await into(userBadges).insertOnConflictUpdate(
+        UserBadgesCompanion.insert(
+          id: item['id'] as String,
+          title: item['title'] as String,
+          description: item['description'] as String,
+          icon: item['icon'] as String,
+          category: item['category'] as String,
+          isUnlocked: Value(item['isUnlocked'] as bool? ?? false),
         ),
       );
     }

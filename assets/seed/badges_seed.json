@@ -1,0 +1,50 @@
+[
+  {
+    "id": "badge_grammar_sniper",
+    "title": "Снайпер времен",
+    "description": "Безошибочно решить блок заданий 20–28 по видо-временным формам глаголов.",
+    "icon": "gps_fixed",
+    "category": "OGE",
+    "isUnlocked": true
+  },
+  {
+    "id": "badge_affix_master",
+    "title": "Мастер суффиксов",
+    "description": "Успешно образовать 10 производных слов с суффиксами и приставками.",
+    "icon": "auto_awesome",
+    "category": "OGE",
+    "isUnlocked": true
+  },
+  {
+    "id": "badge_oge_orator",
+    "title": "Оратор ОГЭ",
+    "description": "Пройти тайминг монолога 2 минуты с использованием всех ключевых связок.",
+    "icon": "record_voice_over",
+    "category": "Speaking",
+    "isUnlocked": false
+  },
+  {
+    "id": "badge_ib_inquirer",
+    "title": "IB Inquirer",
+    "description": "Исследовать Global Context и ответить на Factual, Conceptual и Debatable вопросы.",
+    "icon": "psychology",
+    "category": "IB_MYP",
+    "isUnlocked": true
+  },
+  {
+    "id": "badge_streak_marathon",
+    "title": "Ударный марафонец",
+    "description": "Держать стрик ежедневной практики не менее 7 дней подряд.",
+    "icon": "local_fire_department",
+    "category": "Habit",
+    "isUnlocked": false
+  },
+  {
+    "id": "badge_cohesion_architect",
+    "title": "Архитектор текста",
+    "description": "Написать эссе Criterion D с минимум 5 продвинутыми коннекторами (moreover, consequently).",
+    "icon": "border_color",
+    "category": "IB_MYP",
+    "isUnlocked": false
+  }
+]

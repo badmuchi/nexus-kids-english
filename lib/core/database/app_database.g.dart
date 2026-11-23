@@ -3382,6 +3382,720 @@ class UserProgressTableCompanion extends UpdateCompanion<UserProgressRow> {
   }
 }
 
+class $UserBadgesTable extends UserBadges
+    with TableInfo<$UserBadgesTable, UserBadgeRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $UserBadgesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+      'id', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _titleMeta = const VerificationMeta('title');
+  @override
+  late final GeneratedColumn<String> title = GeneratedColumn<String>(
+      'title', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _descriptionMeta =
+      const VerificationMeta('description');
+  @override
+  late final GeneratedColumn<String> description = GeneratedColumn<String>(
+      'description', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _iconMeta = const VerificationMeta('icon');
+  @override
+  late final GeneratedColumn<String> icon = GeneratedColumn<String>(
+      'icon', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _categoryMeta =
+      const VerificationMeta('category');
+  @override
+  late final GeneratedColumn<String> category = GeneratedColumn<String>(
+      'category', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _isUnlockedMeta =
+      const VerificationMeta('isUnlocked');
+  @override
+  late final GeneratedColumn<bool> isUnlocked = GeneratedColumn<bool>(
+      'is_unlocked', aliasedName, false,
+      type: DriftSqlType.bool,
+      requiredDuringInsert: false,
+      defaultConstraints:
+          GeneratedColumn.constraintIsAlways('CHECK ("is_unlocked" IN (0, 1))'),
+      defaultValue: const Constant(false));
+  static const VerificationMeta _unlockedAtMeta =
+      const VerificationMeta('unlockedAt');
+  @override
+  late final GeneratedColumn<DateTime> unlockedAt = GeneratedColumn<DateTime>(
+      'unlocked_at', aliasedName, true,
+      type: DriftSqlType.dateTime, requiredDuringInsert: false);
+  @override
+  List<GeneratedColumn> get $columns =>
+      [id, title, description, icon, category, isUnlocked, unlockedAt];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'user_badges';
+  @override
+  VerificationContext validateIntegrity(Insertable<UserBadgeRow> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('title')) {
+      context.handle(
+          _titleMeta, title.isAcceptableOrUnknown(data['title']!, _titleMeta));
+    } else if (isInserting) {
+      context.missing(_titleMeta);
+    }
+    if (data.containsKey('description')) {
+      context.handle(
+          _descriptionMeta,
+          description.isAcceptableOrUnknown(
+              data['description']!, _descriptionMeta));
+    } else if (isInserting) {
+      context.missing(_descriptionMeta);
+    }
+    if (data.containsKey('icon')) {
+      context.handle(
+          _iconMeta, icon.isAcceptableOrUnknown(data['icon']!, _iconMeta));
+    } else if (isInserting) {
+      context.missing(_iconMeta);
+    }
+    if (data.containsKey('category')) {
+      context.handle(_categoryMeta,
+          category.isAcceptableOrUnknown(data['category']!, _categoryMeta));
+    } else if (isInserting) {
+      context.missing(_categoryMeta);
+    }
+    if (data.containsKey('is_unlocked')) {
+      context.handle(
+          _isUnlockedMeta,
+          isUnlocked.isAcceptableOrUnknown(
+              data['is_unlocked']!, _isUnlockedMeta));
+    }
+    if (data.containsKey('unlocked_at')) {
+      context.handle(
+          _unlockedAtMeta,
+          unlockedAt.isAcceptableOrUnknown(
+              data['unlocked_at']!, _unlockedAtMeta));
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  UserBadgeRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return UserBadgeRow(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}id'])!,
+      title: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}title'])!,
+      description: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}description'])!,
+      icon: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}icon'])!,
+      category: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}category'])!,
+      isUnlocked: attachedDatabase.typeMapping
+          .read(DriftSqlType.bool, data['${effectivePrefix}is_unlocked'])!,
+      unlockedAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}unlocked_at']),
+    );
+  }
+
+  @override
+  $UserBadgesTable createAlias(String alias) {
+    return $UserBadgesTable(attachedDatabase, alias);
+  }
+}
+
+class UserBadgeRow extends DataClass implements Insertable<UserBadgeRow> {
+  final String id;
+  final String title;
+  final String description;
+  final String icon;
+  final String category;
+  final bool isUnlocked;
+  final DateTime? unlockedAt;
+  const UserBadgeRow(
+      {required this.id,
+      required this.title,
+      required this.description,
+      required this.icon,
+      required this.category,
+      required this.isUnlocked,
+      this.unlockedAt});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['title'] = Variable<String>(title);
+    map['description'] = Variable<String>(description);
+    map['icon'] = Variable<String>(icon);
+    map['category'] = Variable<String>(category);
+    map['is_unlocked'] = Variable<bool>(isUnlocked);
+    if (!nullToAbsent || unlockedAt != null) {
+      map['unlocked_at'] = Variable<DateTime>(unlockedAt);
+    }
+    return map;
+  }
+
+  UserBadgesCompanion toCompanion(bool nullToAbsent) {
+    return UserBadgesCompanion(
+      id: Value(id),
+      title: Value(title),
+      description: Value(description),
+      icon: Value(icon),
+      category: Value(category),
+      isUnlocked: Value(isUnlocked),
+      unlockedAt: unlockedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(unlockedAt),
+    );
+  }
+
+  factory UserBadgeRow.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return UserBadgeRow(
+      id: serializer.fromJson<String>(json['id']),
+      title: serializer.fromJson<String>(json['title']),
+      description: serializer.fromJson<String>(json['description']),
+      icon: serializer.fromJson<String>(json['icon']),
+      category: serializer.fromJson<String>(json['category']),
+      isUnlocked: serializer.fromJson<bool>(json['isUnlocked']),
+      unlockedAt: serializer.fromJson<DateTime?>(json['unlockedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'title': serializer.toJson<String>(title),
+      'description': serializer.toJson<String>(description),
+      'icon': serializer.toJson<String>(icon),
+      'category': serializer.toJson<String>(category),
+      'isUnlocked': serializer.toJson<bool>(isUnlocked),
+      'unlockedAt': serializer.toJson<DateTime?>(unlockedAt),
+    };
+  }
+
+  UserBadgeRow copyWith(
+          {String? id,
+          String? title,
+          String? description,
+          String? icon,
+          String? category,
+          bool? isUnlocked,
+          Value<DateTime?> unlockedAt = const Value.absent()}) =>
+      UserBadgeRow(
+        id: id ?? this.id,
+        title: title ?? this.title,
+        description: description ?? this.description,
+        icon: icon ?? this.icon,
+        category: category ?? this.category,
+        isUnlocked: isUnlocked ?? this.isUnlocked,
+        unlockedAt: unlockedAt.present ? unlockedAt.value : this.unlockedAt,
+      );
+  UserBadgeRow copyWithCompanion(UserBadgesCompanion data) {
+    return UserBadgeRow(
+      id: data.id.present ? data.id.value : this.id,
+      title: data.title.present ? data.title.value : this.title,
+      description:
+          data.description.present ? data.description.value : this.description,
+      icon: data.icon.present ? data.icon.value : this.icon,
+      category: data.category.present ? data.category.value : this.category,
+      isUnlocked:
+          data.isUnlocked.present ? data.isUnlocked.value : this.isUnlocked,
+      unlockedAt:
+          data.unlockedAt.present ? data.unlockedAt.value : this.unlockedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UserBadgeRow(')
+          ..write('id: $id, ')
+          ..write('title: $title, ')
+          ..write('description: $description, ')
+          ..write('icon: $icon, ')
+          ..write('category: $category, ')
+          ..write('isUnlocked: $isUnlocked, ')
+          ..write('unlockedAt: $unlockedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      id, title, description, icon, category, isUnlocked, unlockedAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is UserBadgeRow &&
+          other.id == this.id &&
+          other.title == this.title &&
+          other.description == this.description &&
+          other.icon == this.icon &&
+          other.category == this.category &&
+          other.isUnlocked == this.isUnlocked &&
+          other.unlockedAt == this.unlockedAt);
+}
+
+class UserBadgesCompanion extends UpdateCompanion<UserBadgeRow> {
+  final Value<String> id;
+  final Value<String> title;
+  final Value<String> description;
+  final Value<String> icon;
+  final Value<String> category;
+  final Value<bool> isUnlocked;
+  final Value<DateTime?> unlockedAt;
+  final Value<int> rowid;
+  const UserBadgesCompanion({
+    this.id = const Value.absent(),
+    this.title = const Value.absent(),
+    this.description = const Value.absent(),
+    this.icon = const Value.absent(),
+    this.category = const Value.absent(),
+    this.isUnlocked = const Value.absent(),
+    this.unlockedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  UserBadgesCompanion.insert({
+    required String id,
+    required String title,
+    required String description,
+    required String icon,
+    required String category,
+    this.isUnlocked = const Value.absent(),
+    this.unlockedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  })  : id = Value(id),
+        title = Value(title),
+        description = Value(description),
+        icon = Value(icon),
+        category = Value(category);
+  static Insertable<UserBadgeRow> custom({
+    Expression<String>? id,
+    Expression<String>? title,
+    Expression<String>? description,
+    Expression<String>? icon,
+    Expression<String>? category,
+    Expression<bool>? isUnlocked,
+    Expression<DateTime>? unlockedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (title != null) 'title': title,
+      if (description != null) 'description': description,
+      if (icon != null) 'icon': icon,
+      if (category != null) 'category': category,
+      if (isUnlocked != null) 'is_unlocked': isUnlocked,
+      if (unlockedAt != null) 'unlocked_at': unlockedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  UserBadgesCompanion copyWith(
+      {Value<String>? id,
+      Value<String>? title,
+      Value<String>? description,
+      Value<String>? icon,
+      Value<String>? category,
+      Value<bool>? isUnlocked,
+      Value<DateTime?>? unlockedAt,
+      Value<int>? rowid}) {
+    return UserBadgesCompanion(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      description: description ?? this.description,
+      icon: icon ?? this.icon,
+      category: category ?? this.category,
+      isUnlocked: isUnlocked ?? this.isUnlocked,
+      unlockedAt: unlockedAt ?? this.unlockedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (title.present) {
+      map['title'] = Variable<String>(title.value);
+    }
+    if (description.present) {
+      map['description'] = Variable<String>(description.value);
+    }
+    if (icon.present) {
+      map['icon'] = Variable<String>(icon.value);
+    }
+    if (category.present) {
+      map['category'] = Variable<String>(category.value);
+    }
+    if (isUnlocked.present) {
+      map['is_unlocked'] = Variable<bool>(isUnlocked.value);
+    }
+    if (unlockedAt.present) {
+      map['unlocked_at'] = Variable<DateTime>(unlockedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UserBadgesCompanion(')
+          ..write('id: $id, ')
+          ..write('title: $title, ')
+          ..write('description: $description, ')
+          ..write('icon: $icon, ')
+          ..write('category: $category, ')
+          ..write('isUnlocked: $isUnlocked, ')
+          ..write('unlockedAt: $unlockedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $ExamAttemptsTable extends ExamAttempts
+    with TableInfo<$ExamAttemptsTable, ExamAttemptRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $ExamAttemptsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+      'id', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _scoreOutOf68Meta =
+      const VerificationMeta('scoreOutOf68');
+  @override
+  late final GeneratedColumn<int> scoreOutOf68 = GeneratedColumn<int>(
+      'score_out_of68', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _gradeMarkMeta =
+      const VerificationMeta('gradeMark');
+  @override
+  late final GeneratedColumn<int> gradeMark = GeneratedColumn<int>(
+      'grade_mark', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _durationSecondsMeta =
+      const VerificationMeta('durationSeconds');
+  @override
+  late final GeneratedColumn<int> durationSeconds = GeneratedColumn<int>(
+      'duration_seconds', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _completedAtMeta =
+      const VerificationMeta('completedAt');
+  @override
+  late final GeneratedColumn<DateTime> completedAt = GeneratedColumn<DateTime>(
+      'completed_at', aliasedName, false,
+      type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  @override
+  List<GeneratedColumn> get $columns =>
+      [id, scoreOutOf68, gradeMark, durationSeconds, completedAt];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'exam_attempts';
+  @override
+  VerificationContext validateIntegrity(Insertable<ExamAttemptRow> instance,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('score_out_of68')) {
+      context.handle(
+          _scoreOutOf68Meta,
+          scoreOutOf68.isAcceptableOrUnknown(
+              data['score_out_of68']!, _scoreOutOf68Meta));
+    } else if (isInserting) {
+      context.missing(_scoreOutOf68Meta);
+    }
+    if (data.containsKey('grade_mark')) {
+      context.handle(_gradeMarkMeta,
+          gradeMark.isAcceptableOrUnknown(data['grade_mark']!, _gradeMarkMeta));
+    } else if (isInserting) {
+      context.missing(_gradeMarkMeta);
+    }
+    if (data.containsKey('duration_seconds')) {
+      context.handle(
+          _durationSecondsMeta,
+          durationSeconds.isAcceptableOrUnknown(
+              data['duration_seconds']!, _durationSecondsMeta));
+    } else if (isInserting) {
+      context.missing(_durationSecondsMeta);
+    }
+    if (data.containsKey('completed_at')) {
+      context.handle(
+          _completedAtMeta,
+          completedAt.isAcceptableOrUnknown(
+              data['completed_at']!, _completedAtMeta));
+    } else if (isInserting) {
+      context.missing(_completedAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  ExamAttemptRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return ExamAttemptRow(
+      id: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}id'])!,
+      scoreOutOf68: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}score_out_of68'])!,
+      gradeMark: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}grade_mark'])!,
+      durationSeconds: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}duration_seconds'])!,
+      completedAt: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}completed_at'])!,
+    );
+  }
+
+  @override
+  $ExamAttemptsTable createAlias(String alias) {
+    return $ExamAttemptsTable(attachedDatabase, alias);
+  }
+}
+
+class ExamAttemptRow extends DataClass implements Insertable<ExamAttemptRow> {
+  final String id;
+  final int scoreOutOf68;
+  final int gradeMark;
+  final int durationSeconds;
+  final DateTime completedAt;
+  const ExamAttemptRow(
+      {required this.id,
+      required this.scoreOutOf68,
+      required this.gradeMark,
+      required this.durationSeconds,
+      required this.completedAt});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['score_out_of68'] = Variable<int>(scoreOutOf68);
+    map['grade_mark'] = Variable<int>(gradeMark);
+    map['duration_seconds'] = Variable<int>(durationSeconds);
+    map['completed_at'] = Variable<DateTime>(completedAt);
+    return map;
+  }
+
+  ExamAttemptsCompanion toCompanion(bool nullToAbsent) {
+    return ExamAttemptsCompanion(
+      id: Value(id),
+      scoreOutOf68: Value(scoreOutOf68),
+      gradeMark: Value(gradeMark),
+      durationSeconds: Value(durationSeconds),
+      completedAt: Value(completedAt),
+    );
+  }
+
+  factory ExamAttemptRow.fromJson(Map<String, dynamic> json,
+      {ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return ExamAttemptRow(
+      id: serializer.fromJson<String>(json['id']),
+      scoreOutOf68: serializer.fromJson<int>(json['scoreOutOf68']),
+      gradeMark: serializer.fromJson<int>(json['gradeMark']),
+      durationSeconds: serializer.fromJson<int>(json['durationSeconds']),
+      completedAt: serializer.fromJson<DateTime>(json['completedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'scoreOutOf68': serializer.toJson<int>(scoreOutOf68),
+      'gradeMark': serializer.toJson<int>(gradeMark),
+      'durationSeconds': serializer.toJson<int>(durationSeconds),
+      'completedAt': serializer.toJson<DateTime>(completedAt),
+    };
+  }
+
+  ExamAttemptRow copyWith(
+          {String? id,
+          int? scoreOutOf68,
+          int? gradeMark,
+          int? durationSeconds,
+          DateTime? completedAt}) =>
+      ExamAttemptRow(
+        id: id ?? this.id,
+        scoreOutOf68: scoreOutOf68 ?? this.scoreOutOf68,
+        gradeMark: gradeMark ?? this.gradeMark,
+        durationSeconds: durationSeconds ?? this.durationSeconds,
+        completedAt: completedAt ?? this.completedAt,
+      );
+  ExamAttemptRow copyWithCompanion(ExamAttemptsCompanion data) {
+    return ExamAttemptRow(
+      id: data.id.present ? data.id.value : this.id,
+      scoreOutOf68: data.scoreOutOf68.present
+          ? data.scoreOutOf68.value
+          : this.scoreOutOf68,
+      gradeMark: data.gradeMark.present ? data.gradeMark.value : this.gradeMark,
+      durationSeconds: data.durationSeconds.present
+          ? data.durationSeconds.value
+          : this.durationSeconds,
+      completedAt:
+          data.completedAt.present ? data.completedAt.value : this.completedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ExamAttemptRow(')
+          ..write('id: $id, ')
+          ..write('scoreOutOf68: $scoreOutOf68, ')
+          ..write('gradeMark: $gradeMark, ')
+          ..write('durationSeconds: $durationSeconds, ')
+          ..write('completedAt: $completedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(id, scoreOutOf68, gradeMark, durationSeconds, completedAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ExamAttemptRow &&
+          other.id == this.id &&
+          other.scoreOutOf68 == this.scoreOutOf68 &&
+          other.gradeMark == this.gradeMark &&
+          other.durationSeconds == this.durationSeconds &&
+          other.completedAt == this.completedAt);
+}
+
+class ExamAttemptsCompanion extends UpdateCompanion<ExamAttemptRow> {
+  final Value<String> id;
+  final Value<int> scoreOutOf68;
+  final Value<int> gradeMark;
+  final Value<int> durationSeconds;
+  final Value<DateTime> completedAt;
+  final Value<int> rowid;
+  const ExamAttemptsCompanion({
+    this.id = const Value.absent(),
+    this.scoreOutOf68 = const Value.absent(),
+    this.gradeMark = const Value.absent(),
+    this.durationSeconds = const Value.absent(),
+    this.completedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  ExamAttemptsCompanion.insert({
+    required String id,
+    required int scoreOutOf68,
+    required int gradeMark,
+    required int durationSeconds,
+    required DateTime completedAt,
+    this.rowid = const Value.absent(),
+  })  : id = Value(id),
+        scoreOutOf68 = Value(scoreOutOf68),
+        gradeMark = Value(gradeMark),
+        durationSeconds = Value(durationSeconds),
+        completedAt = Value(completedAt);
+  static Insertable<ExamAttemptRow> custom({
+    Expression<String>? id,
+    Expression<int>? scoreOutOf68,
+    Expression<int>? gradeMark,
+    Expression<int>? durationSeconds,
+    Expression<DateTime>? completedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (scoreOutOf68 != null) 'score_out_of68': scoreOutOf68,
+      if (gradeMark != null) 'grade_mark': gradeMark,
+      if (durationSeconds != null) 'duration_seconds': durationSeconds,
+      if (completedAt != null) 'completed_at': completedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  ExamAttemptsCompanion copyWith(
+      {Value<String>? id,
+      Value<int>? scoreOutOf68,
+      Value<int>? gradeMark,
+      Value<int>? durationSeconds,
+      Value<DateTime>? completedAt,
+      Value<int>? rowid}) {
+    return ExamAttemptsCompanion(
+      id: id ?? this.id,
+      scoreOutOf68: scoreOutOf68 ?? this.scoreOutOf68,
+      gradeMark: gradeMark ?? this.gradeMark,
+      durationSeconds: durationSeconds ?? this.durationSeconds,
+      completedAt: completedAt ?? this.completedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (scoreOutOf68.present) {
+      map['score_out_of68'] = Variable<int>(scoreOutOf68.value);
+    }
+    if (gradeMark.present) {
+      map['grade_mark'] = Variable<int>(gradeMark.value);
+    }
+    if (durationSeconds.present) {
+      map['duration_seconds'] = Variable<int>(durationSeconds.value);
+    }
+    if (completedAt.present) {
+      map['completed_at'] = Variable<DateTime>(completedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ExamAttemptsCompanion(')
+          ..write('id: $id, ')
+          ..write('scoreOutOf68: $scoreOutOf68, ')
+          ..write('gradeMark: $gradeMark, ')
+          ..write('durationSeconds: $durationSeconds, ')
+          ..write('completedAt: $completedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -3394,6 +4108,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $StudyGoalsTable studyGoals = $StudyGoalsTable(this);
   late final $UserProgressTableTable userProgressTable =
       $UserProgressTableTable(this);
+  late final $UserBadgesTable userBadges = $UserBadgesTable(this);
+  late final $ExamAttemptsTable examAttempts = $ExamAttemptsTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -3404,7 +4120,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
         ibInquiryUnits,
         srsCards,
         studyGoals,
-        userProgressTable
+        userProgressTable,
+        userBadges,
+        examAttempts
       ];
 }
 
@@ -5017,6 +5735,391 @@ typedef $$UserProgressTableTableProcessedTableManager = ProcessedTableManager<
     ),
     UserProgressRow,
     PrefetchHooks Function()>;
+typedef $$UserBadgesTableCreateCompanionBuilder = UserBadgesCompanion Function({
+  required String id,
+  required String title,
+  required String description,
+  required String icon,
+  required String category,
+  Value<bool> isUnlocked,
+  Value<DateTime?> unlockedAt,
+  Value<int> rowid,
+});
+typedef $$UserBadgesTableUpdateCompanionBuilder = UserBadgesCompanion Function({
+  Value<String> id,
+  Value<String> title,
+  Value<String> description,
+  Value<String> icon,
+  Value<String> category,
+  Value<bool> isUnlocked,
+  Value<DateTime?> unlockedAt,
+  Value<int> rowid,
+});
+
+class $$UserBadgesTableFilterComposer
+    extends Composer<_$AppDatabase, $UserBadgesTable> {
+  $$UserBadgesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get title => $composableBuilder(
+      column: $table.title, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get description => $composableBuilder(
+      column: $table.description, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get icon => $composableBuilder(
+      column: $table.icon, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get category => $composableBuilder(
+      column: $table.category, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<bool> get isUnlocked => $composableBuilder(
+      column: $table.isUnlocked, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get unlockedAt => $composableBuilder(
+      column: $table.unlockedAt, builder: (column) => ColumnFilters(column));
+}
+
+class $$UserBadgesTableOrderingComposer
+    extends Composer<_$AppDatabase, $UserBadgesTable> {
+  $$UserBadgesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get title => $composableBuilder(
+      column: $table.title, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get description => $composableBuilder(
+      column: $table.description, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get icon => $composableBuilder(
+      column: $table.icon, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get category => $composableBuilder(
+      column: $table.category, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<bool> get isUnlocked => $composableBuilder(
+      column: $table.isUnlocked, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get unlockedAt => $composableBuilder(
+      column: $table.unlockedAt, builder: (column) => ColumnOrderings(column));
+}
+
+class $$UserBadgesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $UserBadgesTable> {
+  $$UserBadgesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get title =>
+      $composableBuilder(column: $table.title, builder: (column) => column);
+
+  GeneratedColumn<String> get description => $composableBuilder(
+      column: $table.description, builder: (column) => column);
+
+  GeneratedColumn<String> get icon =>
+      $composableBuilder(column: $table.icon, builder: (column) => column);
+
+  GeneratedColumn<String> get category =>
+      $composableBuilder(column: $table.category, builder: (column) => column);
+
+  GeneratedColumn<bool> get isUnlocked => $composableBuilder(
+      column: $table.isUnlocked, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get unlockedAt => $composableBuilder(
+      column: $table.unlockedAt, builder: (column) => column);
+}
+
+class $$UserBadgesTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $UserBadgesTable,
+    UserBadgeRow,
+    $$UserBadgesTableFilterComposer,
+    $$UserBadgesTableOrderingComposer,
+    $$UserBadgesTableAnnotationComposer,
+    $$UserBadgesTableCreateCompanionBuilder,
+    $$UserBadgesTableUpdateCompanionBuilder,
+    (
+      UserBadgeRow,
+      BaseReferences<_$AppDatabase, $UserBadgesTable, UserBadgeRow>
+    ),
+    UserBadgeRow,
+    PrefetchHooks Function()> {
+  $$UserBadgesTableTableManager(_$AppDatabase db, $UserBadgesTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$UserBadgesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$UserBadgesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$UserBadgesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String> id = const Value.absent(),
+            Value<String> title = const Value.absent(),
+            Value<String> description = const Value.absent(),
+            Value<String> icon = const Value.absent(),
+            Value<String> category = const Value.absent(),
+            Value<bool> isUnlocked = const Value.absent(),
+            Value<DateTime?> unlockedAt = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              UserBadgesCompanion(
+            id: id,
+            title: title,
+            description: description,
+            icon: icon,
+            category: category,
+            isUnlocked: isUnlocked,
+            unlockedAt: unlockedAt,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String id,
+            required String title,
+            required String description,
+            required String icon,
+            required String category,
+            Value<bool> isUnlocked = const Value.absent(),
+            Value<DateTime?> unlockedAt = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              UserBadgesCompanion.insert(
+            id: id,
+            title: title,
+            description: description,
+            icon: icon,
+            category: category,
+            isUnlocked: isUnlocked,
+            unlockedAt: unlockedAt,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable<$UserBadgesTable, UserBadgeRow>(table),
+                    BaseReferences<_$AppDatabase, $UserBadgesTable,
+                        UserBadgeRow>(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$UserBadgesTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $UserBadgesTable,
+    UserBadgeRow,
+    $$UserBadgesTableFilterComposer,
+    $$UserBadgesTableOrderingComposer,
+    $$UserBadgesTableAnnotationComposer,
+    $$UserBadgesTableCreateCompanionBuilder,
+    $$UserBadgesTableUpdateCompanionBuilder,
+    (
+      UserBadgeRow,
+      BaseReferences<_$AppDatabase, $UserBadgesTable, UserBadgeRow>
+    ),
+    UserBadgeRow,
+    PrefetchHooks Function()>;
+typedef $$ExamAttemptsTableCreateCompanionBuilder = ExamAttemptsCompanion
+    Function({
+  required String id,
+  required int scoreOutOf68,
+  required int gradeMark,
+  required int durationSeconds,
+  required DateTime completedAt,
+  Value<int> rowid,
+});
+typedef $$ExamAttemptsTableUpdateCompanionBuilder = ExamAttemptsCompanion
+    Function({
+  Value<String> id,
+  Value<int> scoreOutOf68,
+  Value<int> gradeMark,
+  Value<int> durationSeconds,
+  Value<DateTime> completedAt,
+  Value<int> rowid,
+});
+
+class $$ExamAttemptsTableFilterComposer
+    extends Composer<_$AppDatabase, $ExamAttemptsTable> {
+  $$ExamAttemptsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get scoreOutOf68 => $composableBuilder(
+      column: $table.scoreOutOf68, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get gradeMark => $composableBuilder(
+      column: $table.gradeMark, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get durationSeconds => $composableBuilder(
+      column: $table.durationSeconds,
+      builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<DateTime> get completedAt => $composableBuilder(
+      column: $table.completedAt, builder: (column) => ColumnFilters(column));
+}
+
+class $$ExamAttemptsTableOrderingComposer
+    extends Composer<_$AppDatabase, $ExamAttemptsTable> {
+  $$ExamAttemptsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get scoreOutOf68 => $composableBuilder(
+      column: $table.scoreOutOf68,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get gradeMark => $composableBuilder(
+      column: $table.gradeMark, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get durationSeconds => $composableBuilder(
+      column: $table.durationSeconds,
+      builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<DateTime> get completedAt => $composableBuilder(
+      column: $table.completedAt, builder: (column) => ColumnOrderings(column));
+}
+
+class $$ExamAttemptsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $ExamAttemptsTable> {
+  $$ExamAttemptsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get scoreOutOf68 => $composableBuilder(
+      column: $table.scoreOutOf68, builder: (column) => column);
+
+  GeneratedColumn<int> get gradeMark =>
+      $composableBuilder(column: $table.gradeMark, builder: (column) => column);
+
+  GeneratedColumn<int> get durationSeconds => $composableBuilder(
+      column: $table.durationSeconds, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get completedAt => $composableBuilder(
+      column: $table.completedAt, builder: (column) => column);
+}
+
+class $$ExamAttemptsTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $ExamAttemptsTable,
+    ExamAttemptRow,
+    $$ExamAttemptsTableFilterComposer,
+    $$ExamAttemptsTableOrderingComposer,
+    $$ExamAttemptsTableAnnotationComposer,
+    $$ExamAttemptsTableCreateCompanionBuilder,
+    $$ExamAttemptsTableUpdateCompanionBuilder,
+    (
+      ExamAttemptRow,
+      BaseReferences<_$AppDatabase, $ExamAttemptsTable, ExamAttemptRow>
+    ),
+    ExamAttemptRow,
+    PrefetchHooks Function()> {
+  $$ExamAttemptsTableTableManager(_$AppDatabase db, $ExamAttemptsTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$ExamAttemptsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ExamAttemptsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ExamAttemptsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String> id = const Value.absent(),
+            Value<int> scoreOutOf68 = const Value.absent(),
+            Value<int> gradeMark = const Value.absent(),
+            Value<int> durationSeconds = const Value.absent(),
+            Value<DateTime> completedAt = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              ExamAttemptsCompanion(
+            id: id,
+            scoreOutOf68: scoreOutOf68,
+            gradeMark: gradeMark,
+            durationSeconds: durationSeconds,
+            completedAt: completedAt,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required String id,
+            required int scoreOutOf68,
+            required int gradeMark,
+            required int durationSeconds,
+            required DateTime completedAt,
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              ExamAttemptsCompanion.insert(
+            id: id,
+            scoreOutOf68: scoreOutOf68,
+            gradeMark: gradeMark,
+            durationSeconds: durationSeconds,
+            completedAt: completedAt,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable<$ExamAttemptsTable, ExamAttemptRow>(table),
+                    BaseReferences<_$AppDatabase, $ExamAttemptsTable,
+                        ExamAttemptRow>(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$ExamAttemptsTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $ExamAttemptsTable,
+    ExamAttemptRow,
+    $$ExamAttemptsTableFilterComposer,
+    $$ExamAttemptsTableOrderingComposer,
+    $$ExamAttemptsTableAnnotationComposer,
+    $$ExamAttemptsTableCreateCompanionBuilder,
+    $$ExamAttemptsTableUpdateCompanionBuilder,
+    (
+      ExamAttemptRow,
+      BaseReferences<_$AppDatabase, $ExamAttemptsTable, ExamAttemptRow>
+    ),
+    ExamAttemptRow,
+    PrefetchHooks Function()>;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -5033,4 +6136,8 @@ class $AppDatabaseManager {
       $$StudyGoalsTableTableManager(_db, _db.studyGoals);
   $$UserProgressTableTableTableManager get userProgressTable =>
       $$UserProgressTableTableTableManager(_db, _db.userProgressTable);
+  $$UserBadgesTableTableManager get userBadges =>
+      $$UserBadgesTableTableManager(_db, _db.userBadges);
+  $$ExamAttemptsTableTableManager get examAttempts =>
+      $$ExamAttemptsTableTableManager(_db, _db.examAttempts);
 }

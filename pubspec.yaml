@@ -32,9 +32,14 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+    - assets/seed/
     - assets/seed/oge_grammar_seed.json
     - assets/seed/oge_word_formation_seed.json
     - assets/seed/oge_exam_sim_seed.json
+    - assets/seed/oge_listening_seed.json
+    - assets/seed/oge_reading_seed.json
     - assets/seed/ib_inquiry_seed.json
+    - assets/seed/ib_rubrics_seed.json
     - assets/seed/srs_seed.json
     - assets/seed/goals_seed.json
+    - assets/seed/badges_seed.json

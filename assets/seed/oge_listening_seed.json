@@ -1,0 +1,73 @@
+[
+  {
+    "id": "oge_list_1_4",
+    "part": "tasks_1_4",
+    "title": "Задания 1–4: Понимание основного содержания (диалоги в разных местах)",
+    "audioScript": "Dialogue A: Good morning! Can I see your passport and boarding pass, please? Sure, here you are. Do you have any luggage to check in, or just this carry-on backpack? Just the backpack. Perfect, your gate is B14. Dialogue B: Two tickets for the 3D showing of Galaxy Explorers, please. Row 7 in the middle is available. Would you like some large popcorn and drinks with that? Dialogue C: Excuse me, where can I find science fiction novels and dictionaries? Go straight to the second floor, next to the study desks. Dialogue D: Doctor, my dog hasn't eaten anything since yesterday and seems very tired. Let me examine his paws and temperature first.",
+    "items": [
+      {
+        "id": "l1",
+        "question": "Where does Dialogue A take place?",
+        "options": ["At an airport check-in desk", "At a railway station", "In a hotel lobby"],
+        "correctIndex": 0,
+        "explanation": "Слова-маркеры: 'passport', 'boarding pass', 'luggage', 'gate B14'."
+      },
+      {
+        "id": "l2",
+        "question": "Where does Dialogue B take place?",
+        "options": ["At a theatre box office", "At a cinema", "In a sports stadium"],
+        "correctIndex": 1,
+        "explanation": "Слова-маркеры: '3D showing', 'Row 7', 'popcorn and drinks'."
+      },
+      {
+        "id": "l3",
+        "question": "Where does Dialogue C take place?",
+        "options": ["In a library / bookstore", "In a museum", "In a pharmacy"],
+        "correctIndex": 0,
+        "explanation": "Слова-маркеры: 'novels', 'dictionaries', 'second floor', 'study desks'."
+      },
+      {
+        "id": "l4",
+        "question": "Where does Dialogue D take place?",
+        "options": ["In a veterinary clinic", "In a pet shop", "In an animal shelter"],
+        "correctIndex": 0,
+        "explanation": "Слова-маркеры: 'Doctor', 'my dog hasn't eaten', 'examine paws and temperature'."
+      }
+    ]
+  },
+  {
+    "id": "oge_list_5",
+    "part": "task_5",
+    "title": "Задание 5: Сопоставление говорящих со школьными темами (A–E)",
+    "audioScript": "Speaker A: I love biology because we do hands-on experiments with microscopes every Thursday. Speaker B: For me, foreign languages open doors to travelling and meeting friends from all continents. Speaker C: Solving complex algebraic equations is like cracking a code; math is pure logic! Speaker D: Physical education keeps my mind fresh after six hours of sitting at a desk. Speaker E: History lets us travel back in time to understand why our world is shaped this way.",
+    "statements": [
+      {"id": "st1", "text": "This speaker finds science experiments exciting."},
+      {"id": "st2", "text": "This speaker values communication across borders."},
+      {"id": "st3", "text": "This speaker enjoys intellectual challenges and logic."},
+      {"id": "st4", "text": "This speaker needs physical activity to relax."},
+      {"id": "st5", "text": "This speaker is fascinated by events of the past."},
+      {"id": "st6", "text": "This speaker wants to become a professional artist."}
+    ],
+    "correctMapping": {
+      "Speaker A": "st1",
+      "Speaker B": "st2",
+      "Speaker C": "st3",
+      "Speaker D": "st4",
+      "Speaker E": "st5"
+    }
+  },
+  {
+    "id": "oge_list_6_11",
+    "part": "tasks_6_11",
+    "title": "Задания 6–11: Заполнение таблицы по интервью (Fact-filling)",
+    "audioScript": "Interviewer: Welcome to our youth podcast, Mark! Tell our listeners about yourself. Mark: Hi! My name is Mark Turner. I am fourteen years old. I live in Manchester. Interviewer: What is your primary hobby? Mark: I have been into 3D animation for two years. I attend a robotics club every Wednesday at five o'clock. Interviewer: What pet do you have? Mark: I have a ginger cat named Oscar. Interviewer: And what is your dream profession? Mark: I want to become a software engineer at a game studio.",
+    "tableFields": [
+      {"id": "f6", "field": "Age of the respondent", "correct": "14", "acceptable": ["14", "fourteen"]},
+      {"id": "f7", "field": "City where Mark lives", "correct": "Manchester", "acceptable": ["manchester"]},
+      {"id": "f8", "field": "Mark's main hobby", "correct": "3D animation", "acceptable": ["3d animation", "animation"]},
+      {"id": "f9", "field": "Club meeting day", "correct": "Wednesday", "acceptable": ["wednesday"]},
+      {"id": "f10", "field": "Kind of pet", "correct": "cat", "acceptable": ["cat", "a cat", "ginger cat"]},
+      {"id": "f11", "field": "Dream profession", "correct": "software engineer", "acceptable": ["software engineer", "engineer"]}
+    ]
+  }
+]

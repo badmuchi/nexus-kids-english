@@ -1,0 +1,101 @@
+{
+  "task12Headings": {
+    "title": "Задание 12: Сопоставление заголовков и текстов A–F",
+    "headings": [
+      {"id": "h1", "text": "1. Renewable energy in daily life"},
+      {"id": "h2", "text": "2. Modern habits of digital communication"},
+      {"id": "h3", "text": "3. Protecting endangered marine life"},
+      {"id": "h4", "text": "4. The evolution of space exploration"},
+      {"id": "h5", "text": "5. Traditional school holidays around the world"},
+      {"id": "h6", "text": "6. Benefits of regular physical exercise"},
+      {"id": "h7", "text": "7. The architecture of ancient civilisations"}
+    ],
+    "paragraphs": [
+      {
+        "letter": "A",
+        "text": "Solar panels on school roofs and wind turbines across farmland are no longer rare sights. Families install smart batteries to store surplus clean electricity for charging cars overnight.",
+        "correctHeadingId": "h1"
+      },
+      {
+        "letter": "B",
+        "text": "Instant messaging and voice notes have largely replaced email for teenagers. Quick video calls allow students to collaborate on homework projects regardless of physical distance.",
+        "correctHeadingId": "h2"
+      },
+      {
+        "letter": "C",
+        "text": "Coral reefs are suffering from rising ocean temperatures and plastic debris. Marine biologists organize coastal volunteer cleanups and track sea turtle migration using acoustic tags.",
+        "correctHeadingId": "h3"
+      },
+      {
+        "letter": "D",
+        "text": "From the first satellite orbit in 1957 to reusable rockets landing on ocean platforms, our journey into the cosmos continues to accelerate toward lunar bases and Mars rovers.",
+        "correctHeadingId": "h4"
+      },
+      {
+        "letter": "E",
+        "text": "Running three times a week strengthens cardiovascular health and boosts cognitive concentration during school exams. Doctors emphasize that active teenagers sleep significantly better.",
+        "correctHeadingId": "h6"
+      },
+      {
+        "letter": "F",
+        "text": "Colossal stone pyramids in Egypt and intricate Mayan step temples demonstrate astonishing engineering knowledge that existed millennia before the invention of electric cranes.",
+        "correctHeadingId": "h7"
+      }
+    ]
+  },
+  "tasks13_19TrueFalse": {
+    "title": "Задания 13–19: True / False / Not Stated",
+    "text": "Bioluminescence is the production and emission of light by a living organism. It occurs widely in marine animals, ranging from tiny bacteria and jellyfish to deep-sea anglerfish. Unlike incandescent light bulbs that release over ninety percent of their energy as wasted heat, bioluminescence is 'cold light' with almost one hundred percent efficiency. In coastal waters of Puerto Rico, tourists kayak through bioluminescent bays where glowing plankton lights up the water like glowing stars whenever disturbed by oars. Some pharmaceutical labs study the luciferin enzyme from these organisms to design fluorescent markers for medical diagnostics. Marine conservationists actively work to restrict motorboat fuel leaks in these fragile lagoons to preserve the luminous plankton populations.",
+    "questions": [
+      {
+        "id": "q13",
+        "statement": "Bioluminescence can only be found in deep-sea creatures.",
+        "correct": "FALSE",
+        "proofSentence": "It occurs widely in marine animals, ranging from tiny bacteria and jellyfish to deep-sea anglerfish.",
+        "explanation": "Текст прямо говорит, что свечение встречается у самых разных организмов (бактерии, медузы), а не только у глубоководных."
+      },
+      {
+        "id": "q14",
+        "statement": "Bioluminescent light produces very little waste heat compared to light bulbs.",
+        "correct": "TRUE",
+        "proofSentence": "Unlike incandescent light bulbs that release over ninety percent of their energy as wasted heat, bioluminescence is 'cold light' with almost one hundred percent efficiency.",
+        "explanation": "В тексте подтверждается: это 'холодный свет' с почти 100% эффективностью."
+      },
+      {
+        "id": "q15",
+        "statement": "Kayaking tours in Puerto Rico are strictly prohibited during full moon nights.",
+        "correct": "NOT_STATED",
+        "proofSentence": "",
+        "explanation": "В тексте упоминаются туры на байдарках, но про запреты в полнолуние информации нет."
+      },
+      {
+        "id": "q16",
+        "statement": "Glowing plankton produces light when the surrounding water is agitated.",
+        "correct": "TRUE",
+        "proofSentence": "glowing plankton lights up the water like glowing stars whenever disturbed by oars.",
+        "explanation": "Свет появляется при возмущении воды веслами ('disturbed by oars')."
+      },
+      {
+        "id": "q17",
+        "statement": "The luciferin enzyme has already cured several rare diseases.",
+        "correct": "NOT_STATED",
+        "proofSentence": "Some pharmaceutical labs study the luciferin enzyme from these organisms to design fluorescent markers for medical diagnostics.",
+        "explanation": "Фермент исследуют для маркеров диагностики, а не для излечения болезней."
+      },
+      {
+        "id": "q18",
+        "statement": "Conservationists permit any boats to navigate Puerto Rico's lagoons freely.",
+        "correct": "FALSE",
+        "proofSentence": "Marine conservationists actively work to restrict motorboat fuel leaks in these fragile lagoons to preserve the luminous plankton populations.",
+        "explanation": "Экологи работают над ограничением катеров, чтобы защитить лагуны."
+      },
+      {
+        "id": "q19",
+        "statement": "Light emitted by bioluminescent organisms is called 'cold light'.",
+        "correct": "TRUE",
+        "proofSentence": "bioluminescence is 'cold light' with almost one hundred percent efficiency.",
+        "explanation": "Текст явно использует термин 'cold light'."
+      }
+    ]
+  }
+}
