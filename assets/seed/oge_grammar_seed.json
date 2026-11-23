@@ -1,0 +1,112 @@
+[
+  {
+    "id": "og_gram_001",
+    "baseWord": "TAKE",
+    "sentenceBefore": "Last summer, our class",
+    "sentenceAfter": "a fascinating trip to the Natural History Museum.",
+    "correctAnswer": "took",
+    "acceptableAnswers": ["took"],
+    "ruleCategory": "Past Simple",
+    "ruleExplanation": "Маркер времени 'last summer' указывает на завершенное действие в прошлом — используем вторую форму неправильного глагола take -> took.",
+    "cefrLevel": "A2"
+  },
+  {
+    "id": "og_gram_002",
+    "baseWord": "NOT SEE",
+    "sentenceBefore": "I am so glad you called! I",
+    "sentenceAfter": "you since our graduation ceremony in June.",
+    "correctAnswer": "haven't seen",
+    "acceptableAnswers": ["have not seen", "haven't seen"],
+    "ruleCategory": "Present Perfect",
+    "ruleExplanation": "Предлог 'since' (с какого-то момента в прошлом) требует Present Perfect (have/has + V3) для действия, связанного с настоящим.",
+    "cefrLevel": "B1"
+  },
+  {
+    "id": "og_gram_003",
+    "baseWord": "CHILD",
+    "sentenceBefore": "A playground in the city park was crowded with cheerful",
+    "sentenceAfter": "enjoying the sunny afternoon.",
+    "correctAnswer": "children",
+    "acceptableAnswers": ["children"],
+    "ruleCategory": "Irregular Noun Plural",
+    "ruleExplanation": "Существительное-исключение: во множественном числе child -> children.",
+    "cefrLevel": "A2"
+  },
+  {
+    "id": "og_gram_004",
+    "baseWord": "BUILD",
+    "sentenceBefore": "The majestic stone bridge across the river",
+    "sentenceAfter": "in the middle of the 19th century.",
+    "correctAnswer": "was built",
+    "acceptableAnswers": ["was built"],
+    "ruleCategory": "Past Simple Passive",
+    "ruleExplanation": "Мост сам себя не строил (страдательный залог / Passive Voice) + указание на 19-й век (Past Simple) -> was built.",
+    "cefrLevel": "B1"
+  },
+  {
+    "id": "og_gram_005",
+    "baseWord": "GOOD",
+    "sentenceBefore": "Listening to original audio tracks is definitely much",
+    "sentenceAfter": "than just reading grammar rules.",
+    "correctAnswer": "better",
+    "acceptableAnswers": ["better"],
+    "ruleCategory": "Degrees of Comparison",
+    "ruleExplanation": "Союз 'than' указывает на сравнительную степень. Исключение: good -> better.",
+    "cefrLevel": "A2"
+  },
+  {
+    "id": "og_gram_006",
+    "baseWord": "HAVE",
+    "sentenceBefore": "If I",
+    "sentenceAfter": "more spare time, I would definitely learn how to play guitar.",
+    "correctAnswer": "had",
+    "acceptableAnswers": ["had"],
+    "ruleCategory": "Conditionals (Type 2)",
+    "ruleExplanation": "Нереальное условие в настоящем (Second Conditional): в придаточном предложении после 'if' используется Past Simple (had), а в главном — would + V.",
+    "cefrLevel": "B1"
+  },
+  {
+    "id": "og_gram_007",
+    "baseWord": "THEY",
+    "sentenceBefore": "The students prepared all the decorations for the school festival",
+    "sentenceAfter": "without any help from the teachers.",
+    "correctAnswer": "themselves",
+    "acceptableAnswers": ["themselves"],
+    "ruleCategory": "Reflexive Pronouns",
+    "ruleExplanation": "Возвратное местоимение от 'they' (сами, своими силами) — 'themselves'.",
+    "cefrLevel": "A2"
+  },
+  {
+    "id": "og_gram_008",
+    "baseWord": "TWO",
+    "sentenceBefore": "This is already the",
+    "sentenceAfter": "time this week that our robotics team wins the local tournament.",
+    "correctAnswer": "second",
+    "acceptableAnswers": ["second"],
+    "ruleCategory": "Ordinal Numerals",
+    "ruleExplanation": "Артикль 'the' перед пропуском требует порядкового числительного от two -> second.",
+    "cefrLevel": "A2"
+  },
+  {
+    "id": "og_gram_009",
+    "baseWord": "WRITE",
+    "sentenceBefore": "When Emma entered the classroom, the teacher",
+    "sentenceAfter": "the new equation on the blackboard.",
+    "correctAnswer": "was writing",
+    "acceptableAnswers": ["was writing"],
+    "ruleCategory": "Past Continuous",
+    "ruleExplanation": "Длительное действие в прошлом, прерванное кратким (when Emma entered) -> Past Continuous: was writing.",
+    "cefrLevel": "B1"
+  },
+  {
+    "id": "og_gram_010",
+    "baseWord": "FLY",
+    "sentenceBefore": "If the weather is clear tomorrow, our drone",
+    "sentenceAfter": "over the entire national park.",
+    "correctAnswer": "will fly",
+    "acceptableAnswers": ["will fly"],
+    "ruleCategory": "Conditionals (Type 1)",
+    "ruleExplanation": "Реальное условие о будущем (First Conditional): после 'if' Present Simple (is), в главной части — Future Simple (will fly).",
+    "cefrLevel": "A2"
+  }
+]

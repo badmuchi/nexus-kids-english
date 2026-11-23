@@ -1,0 +1,98 @@
+[
+  {
+    "id": "og_wf_001",
+    "baseWord": "FRIEND",
+    "sentenceBefore": "True",
+    "sentenceAfter": "is one of the most valuable treasures in any teenager's life.",
+    "correctAnswer": "friendship",
+    "acceptableAnswers": ["friendship"],
+    "partOfSpeech": "Noun",
+    "affix": "-ship",
+    "explanation": "От существительного friend с помощью абстрактного суффикса -ship образуем существительное дружба (friendship).",
+    "cefrLevel": "A2"
+  },
+  {
+    "id": "og_wf_002",
+    "baseWord": "DANGER",
+    "sentenceBefore": "Walking near the old abandoned construction site can be very",
+    "sentenceAfter": "for young children.",
+    "correctAnswer": "dangerous",
+    "acceptableAnswers": ["dangerous"],
+    "partOfSpeech": "Adjective",
+    "affix": "-ous",
+    "explanation": "После глагола-связки 'be' и наречия 'very' требуется прилагательное: danger + -ous -> dangerous.",
+    "cefrLevel": "A2"
+  },
+  {
+    "id": "og_wf_003",
+    "baseWord": "POSSIBLE",
+    "sentenceBefore": "Without modern satellite navigation, exploring deep underwater caves is almost",
+    "sentenceAfter": "for divers.",
+    "correctAnswer": "impossible",
+    "acceptableAnswers": ["impossible"],
+    "partOfSpeech": "Adjective (Negative)",
+    "affix": "im-",
+    "explanation": "По смыслу 'без навигации это невозможно': перед буквой p добавляем отрицательную приставку im- -> impossible.",
+    "cefrLevel": "B1"
+  },
+  {
+    "id": "og_wf_004",
+    "baseWord": "SCIENCE",
+    "sentenceBefore": "A leading environmental",
+    "sentenceAfter": "delivered an inspiring lecture about renewable energy at our school.",
+    "correctAnswer": "scientist",
+    "acceptableAnswers": ["scientist"],
+    "partOfSpeech": "Noun (Person)",
+    "affix": "-ist",
+    "explanation": "Контекст требует названия профессии/человека (science + -ist -> scientist).",
+    "cefrLevel": "A2"
+  },
+  {
+    "id": "og_wf_005",
+    "baseWord": "QUICK",
+    "sentenceBefore": "Leo solved the algorithmic coding puzzle",
+    "sentenceAfter": "and helped his teammates fix the errors.",
+    "correctAnswer": "quickly",
+    "acceptableAnswers": ["quickly"],
+    "partOfSpeech": "Adverb",
+    "affix": "-ly",
+    "explanation": "Определяет глагол 'solved' (решил как?) -> требуется наречие с суффиксом -ly: quickly.",
+    "cefrLevel": "A2"
+  },
+  {
+    "id": "og_wf_006",
+    "baseWord": "WONDER",
+    "sentenceBefore": "We spent a",
+    "sentenceAfter": "weekend camping near the crystal clear mountain lake.",
+    "correctAnswer": "wonderful",
+    "acceptableAnswers": ["wonderful"],
+    "partOfSpeech": "Adjective",
+    "affix": "-ful",
+    "explanation": "Перед существительным 'weekend' требуется прилагательное с суффиксом -ful: wonder + -ful -> wonderful.",
+    "cefrLevel": "A2"
+  },
+  {
+    "id": "og_wf_007",
+    "baseWord": "AGREE",
+    "sentenceBefore": "I strongly",
+    "sentenceAfter": "with people who claim that video games have no educational benefit.",
+    "correctAnswer": "disagree",
+    "acceptableAnswers": ["disagree"],
+    "partOfSpeech": "Verb (Negative)",
+    "affix": "dis-",
+    "explanation": "По смыслу контекста говорящий не согласен: глагол с отрицательной приставкой dis- -> disagree.",
+    "cefrLevel": "B1"
+  },
+  {
+    "id": "og_wf_008",
+    "baseWord": "POLLUTE",
+    "sentenceBefore": "Plastic waste in our oceans is causing catastrophic environmental",
+    "sentenceAfter": "worldwide.",
+    "correctAnswer": "pollution",
+    "acceptableAnswers": ["pollution"],
+    "partOfSpeech": "Noun",
+    "affix": "-tion",
+    "explanation": "После прилагательного 'environmental' нужно существительное: pollute -> pollution.",
+    "cefrLevel": "B1"
+  }
+]

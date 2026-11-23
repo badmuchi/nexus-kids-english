@@ -1,0 +1,35 @@
+[
+  {
+    "id": "goal_001",
+    "title": "ОГЭ: Максимальный балл (68/68)",
+    "description": "Отработать все задания разделов Грамматика (20-28), Словообразование (29-34), Письмо и Говорение.",
+    "category": "OGE",
+    "targetValue": 68,
+    "currentValue": 42,
+    "unit": "баллов",
+    "deadlineDays": 180,
+    "isPrimary": true
+  },
+  {
+    "id": "goal_002",
+    "title": "IB MYP: Criteria A-D Mastery",
+    "description": "Выполнить все исследовательские задания по фазе 3/4 и набрать минимум 6/8 по каждому критерию.",
+    "category": "IB_MYP",
+    "targetValue": 32,
+    "currentValue": 24,
+    "unit": "критериев",
+    "deadlineDays": 90,
+    "isPrimary": false
+  },
+  {
+    "id": "goal_003",
+    "title": "Ежедневная привычка: 15 минут",
+    "description": "Повторение карточек SRS и прохождение одного грамматического сета каждый день.",
+    "category": "DAILY",
+    "targetValue": 15,
+    "currentValue": 15,
+    "unit": "минут/день",
+    "deadlineDays": 30,
+    "isPrimary": false
+  }
+]

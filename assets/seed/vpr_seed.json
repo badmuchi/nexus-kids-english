@@ -1,0 +1,50 @@
+[
+  {
+    "id": "vpr_5_t1_01",
+    "grade": 5,
+    "taskNumber": 1,
+    "taskType": "reading_aloud",
+    "title": "Задание 1. Осмысленное чтение текста вслух",
+    "instructions": "Прочитай текст вслух. У тебя есть 1.5 минуты на подготовку. Обрати внимание на ударения и интонацию в конце предложений.",
+    "textPassage": "London is one of the most exciting cities in the world. It has many green parks and famous museums. People from all over the globe visit the British Museum to see ancient treasures. The River Thames flows through the heart of the city. You can take a boat trip and see Big Ben and the Tower Bridge from the water.",
+    "optionsJson": null,
+    "correctAnswer": "fluent_read",
+    "explanation": "Совет: делай короткие паузы на запятых. В слове 'ancient' звук [ˈeɪnʃənt], а 'treasures' читается как [ˈtreʒəz]."
+  },
+  {
+    "id": "vpr_5_t2_01",
+    "grade": 5,
+    "taskNumber": 2,
+    "taskType": "listening",
+    "title": "Задание 2. Аудирование с выбором ответа",
+    "instructions": "Послушай рассказ Тома о его школьном клубе и определи, верны ли утверждения (True / False / Not Stated).",
+    "textPassage": "Hi, I'm Tom! Every Thursday after lessons, I go to our school Robotics Club. We build Lego robots and program them on tablets. Next month we are going to take part in the city science fair. My best friend Leo doesn't like robots; he plays in the basketball team.",
+    "optionsJson": "[\"Tom goes to the Robotics Club on Tuesdays.\", \"Tom uses tablets to program robots.\", \"Leo's basketball team won the championship yesterday.\"]",
+    "correctAnswer": "False; True; Not Stated",
+    "explanation": "1. False (он ходит по четвергам — Thursdays, а не вторникам). 2. True (они программируют на планшетах). 3. Not Stated (про победу в чемпионате ничего не сказано)."
+  },
+  {
+    "id": "vpr_5_t3_01",
+    "grade": 5,
+    "taskNumber": 3,
+    "taskType": "text_matching",
+    "title": "Задание 3. Чтение и понимание текста (Matching)",
+    "instructions": "Прочитай короткие тексты и подбери к каждому подходящий заголовок.",
+    "textPassage": "A. Cheetahs are the fastest land animals. They can run as fast as cars on the highway, reaching 100 km/h in just a few seconds.\nB. Blue whales are the largest creatures that ever lived on Earth. Their heart is as big as a small car!\nC. Emperor penguins live in freezing Antarctica. The father penguin keeps the egg warm on his feet during winter storms.",
+    "optionsJson": "[\"1. Cold Weather Champions\", \"2. Speed Record Holders\", \"3. Ocean Giants\", \"4. Forest Hunters\"]",
+    "correctAnswer": "A-2, B-3, C-1",
+    "explanation": "Текст A — про скорость гепарда (2), B — про гигантского кита (3), C — про пингвинов в Антарктиде (1). Лишний заголовок — 4."
+  },
+  {
+    "id": "vpr_5_t4_01",
+    "grade": 5,
+    "taskNumber": 4,
+    "taskType": "grammar_vocab",
+    "title": "Задание 4. Лексико-грамматический тест",
+    "instructions": "Раскрой скобки и вставь правильную форму слова: 'Yesterday Mary (go) to the library.'",
+    "textPassage": "Yesterday Mary (go) to the library to find books about space. She (be) very curious.",
+    "optionsJson": "[\"goes\", \"went\", \"gone\", \"going\"]",
+    "correctAnswer": "went",
+    "explanation": "Маркер времени 'Yesterday' указывает на Past Simple. Вторая форма неправильного глагола go — went."
+  }
+]

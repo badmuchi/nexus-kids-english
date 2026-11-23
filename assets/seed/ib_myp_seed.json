@@ -1,0 +1,46 @@
+[
+  {
+    "id": "ib_crit_a_01",
+    "criterion": "criterion_a",
+    "phase": 1,
+    "globalContext": "Scientific and technical innovation",
+    "title": "Criterion A: Listening — The School Eco-Invention",
+    "scenario": "Listen to an interview with Mia, a 6th grade student who invented a solar-powered bird feeder for the school garden.",
+    "prompt": "Listen carefully to the audio interview. What was Mia's main inspiration, and how does the feeder protect the seeds from rain?",
+    "rubricJson": "{\"1-2\": \"Identifies basic stated facts\", \"3-4\": \"Identifies main ideas and some supporting details\", \"5-6\": \"Demonstrates clear understanding of explicit and implicit messages\", \"7-8\": \"Perceptively analyses conventions, purpose and perspective\"}",
+    "sampleAnswer": "Mia was inspired by observing birds during winter biology class. The feeder has a tilted roof made of recycled plastic that automatically shades the food tray."
+  },
+  {
+    "id": "ib_crit_b_01",
+    "criterion": "criterion_b",
+    "phase": 2,
+    "globalContext": "Globalization and sustainability",
+    "title": "Criterion B: Reading — Zero-Waste School Cafeteria",
+    "scenario": "Read an article from an international youth magazine about how students in Stockholm eliminated plastic waste in their school cafeteria.",
+    "prompt": "Read the article. How did students convince the school administration to change policies? Explain using two examples from the text.",
+    "rubricJson": "{\"1-2\": \"Understands few basic words and ideas\", \"3-4\": \"Understands main idea and simple details\", \"5-6\": \"Understands nuances, organization and connections\", \"7-8\": \"Effectively evaluates purpose, audience and tone\"}",
+    "sampleAnswer": "Students created an interactive waste audit presentation and calculated that the school could save budget money by switching to washable trays."
+  },
+  {
+    "id": "ib_crit_c_01",
+    "criterion": "criterion_c",
+    "phase": 1,
+    "globalContext": "Identities and relationships",
+    "title": "Criterion C: Speaking — My Favorite Hobby & Club",
+    "scenario": "You are presenting your after-school activity to exchange students visiting your school.",
+    "prompt": "Describe what you do in your club, why you enjoy it, and give one reason why newcomers should join. Use phrases: 'In my experience...', 'I really enjoy...', 'What makes it special is...'",
+    "rubricJson": "{\"1-2\": \"Uses limited vocabulary, frequent pauses\", \"3-4\": \"Communicates simply with reasonable pronunciation\", \"5-6\": \"Communicates clearly with good flow and varied vocabulary\", \"7-8\": \"Speaks fluently, expressively, and engages the audience naturally\"}",
+    "sampleAnswer": "In my experience, joining the Drama Club helped me make great friends. I really enjoy acting because it builds confidence. You should join because we laugh a lot and perform exciting plays!"
+  },
+  {
+    "id": "ib_crit_d_01",
+    "criterion": "criterion_d",
+    "phase": 2,
+    "globalContext": "Personal and cultural expression",
+    "title": "Criterion D: Writing — Letter to an International Pen Pal",
+    "scenario": "Write an informal email (60-80 words) to Alex, your pen pal from London, telling him about your favorite traditional holiday in your country.",
+    "prompt": "Include: 1) What the holiday is called; 2) How your family celebrates; 3) What special food you eat. Start with 'Dear Alex,' and end with 'Best wishes, [Your Name]'.",
+    "rubricJson": "{\"1-2\": \"Writes basic phrases with frequent grammatical errors\", \"3-4\": \"Writes simple coherent sentences with understandable meaning\", \"5-6\": \"Writes structured text using appropriate vocabulary and connectors\", \"7-8\": \"Writes rich, accurate, engaging text tailored to the format\"}",
+    "sampleAnswer": "Dear Alex, I'm writing to tell you about Maslenitsa! It is a fun spring festival. My family makes delicious golden pancakes with honey and berries. We also play outdoor games and say goodbye to the cold winter. Do you have a similar festival in the UK? Best wishes, Anna."
+  }
+]

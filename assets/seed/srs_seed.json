@@ -1,0 +1,82 @@
+[
+  {
+    "id": "srs_w_001",
+    "frontEnglish": "environment",
+    "backRussian": "окружающая среда",
+    "transcriptionIpa": "/ɪnˈvaɪ.rən.mənt/",
+    "level": "B1",
+    "category": "OGE_Topic",
+    "exampleSentence": "We must take immediate action to protect the natural environment.",
+    "exampleTranslation": "Мы должны предпринять немедленные действия для защиты окружающей среды."
+  },
+  {
+    "id": "srs_w_002",
+    "frontEnglish": "achieve",
+    "backRussian": "достигать (цели, успеха)",
+    "transcriptionIpa": "/əˈtʃiːv/",
+    "level": "B1",
+    "category": "OGE_Topic",
+    "exampleSentence": "If you practice consistently every day, you will achieve high exam results.",
+    "exampleTranslation": "Если ты регулярно занимаешься каждый день, ты достигнешь высоких результатов на экзамене."
+  },
+  {
+    "id": "srs_w_003",
+    "frontEnglish": "curiosity",
+    "backRussian": "любопытство, любознательность",
+    "transcriptionIpa": "/ˌkjʊə.riˈɒs.ə.ti/",
+    "level": "B1",
+    "category": "IB_MYP",
+    "exampleSentence": "Scientific discoveries often begin with a spark of genuine curiosity.",
+    "exampleTranslation": "Научные открытия часто начинаются с искры подлинной любознательности."
+  },
+  {
+    "id": "srs_w_004",
+    "frontEnglish": "convenient",
+    "backRussian": "удобный (по расположению, времени, использованию)",
+    "transcriptionIpa": "/kənˈviː.ni.ənt/",
+    "level": "A2",
+    "category": "OGE_Topic",
+    "exampleSentence": "Online dictionaries are very convenient for quick word lookups.",
+    "exampleTranslation": "Онлайн-словари очень удобны для быстрого поиска слов."
+  },
+  {
+    "id": "srs_w_005",
+    "frontEnglish": "sustainable",
+    "backRussian": "экологически устойчивый, самоподдерживающийся",
+    "transcriptionIpa": "/səˈsteɪ.nə.bəl/",
+    "level": "B1",
+    "category": "IB_MYP",
+    "exampleSentence": "Solar and wind energy are sustainable alternatives to fossil fuels.",
+    "exampleTranslation": "Солнечная и ветровая энергия — это экологически устойчивые альтернативы ископаемому топливу."
+  },
+  {
+    "id": "srs_w_006",
+    "frontEnglish": "participate",
+    "backRussian": "принимать участие, участвовать",
+    "transcriptionIpa": "/pɑːˈtɪs.ɪ.peɪt/",
+    "level": "B1",
+    "category": "OGE_Topic",
+    "exampleSentence": "Over two hundred teenagers decided to participate in the coding competition.",
+    "exampleTranslation": "Более двухсот подростков решили принять участие в соревновании по программированию."
+  },
+  {
+    "id": "srs_w_007",
+    "frontEnglish": "perspective",
+    "backRussian": "точка зрения, взгляд, ракурс",
+    "transcriptionIpa": "/pəˈspek.tɪv/",
+    "level": "B1",
+    "category": "IB_MYP",
+    "exampleSentence": "Travelling helps you understand cultural issues from a broader perspective.",
+    "exampleTranslation": "Путешествия помогают понять вопросы культуры с более широкой точки зрения."
+  },
+  {
+    "id": "srs_w_008",
+    "frontEnglish": "disadvantage",
+    "backRussian": "недостаток, минус",
+    "transcriptionIpa": "/ˌdɪs.ədˈvɑːn.tɪdʒ/",
+    "level": "A2",
+    "category": "OGE_Topic",
+    "exampleSentence": "A major disadvantage of living far from school is the long morning commute.",
+    "exampleTranslation": "Главный недостаток жизни вдали от школы — долгая утренняя дорога."
+  }
+]

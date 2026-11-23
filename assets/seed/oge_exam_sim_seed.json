@@ -1,0 +1,118 @@
+{
+  "emailTasks": [
+    {
+      "id": "oge_email_001",
+      "from": "Ben@mail.uk",
+      "subject": "Teen hobbies and school clubs",
+      "letterPrompt": "...In our school, they are launching new after-school clubs this semester, and I've decided to join the AI and robotics club. How do you usually spend your free time after classes? What sports or clubs are popular among your classmates, and why? What new hobby would you like to try in the future?...\nWrite an email to Ben. In your email:\n- answer his 3 questions;\n- ask 0 questions (in OGE you only answer 3 questions);\n- write 100–120 words. Remember the rules of email writing.",
+      "checklist": [
+        "Неформальное приветствие: Dear Ben, / Hello Ben,",
+        "Благодарность за письмо / радость от контакта: Thanks for your recent email. Great to hear from you!",
+        "Ответ на вопрос 1: Как ты проводишь свободное время после уроков?",
+        "Ответ на вопрос 2: Какие клубы или спорт популярны среди одноклассников и почему?",
+        "Ответ на вопрос 3: Какое новое хобби ты хочешь попробовать в будущем?",
+        "Ссылка на будущие контакты: Write back soon / Hope to hear from you soon,",
+        "Завершающая фраза и имя на новой строке: Best wishes, / Yours, + Name (без точки!)"
+      ],
+      "sampleAnswer": "Dear Ben,\n\nThanks a lot for your email! It was great to hear from you again.\n\nIn your message you asked me about my free time. Usually after classes, I do my homework and then ride my bicycle or read sci-fi books in the park.\n\nAt our school, basketball and the chess club are very popular. My classmates love basketball because it keeps them energetic, while chess helps them improve logic and concentration.\n\nAs for a new hobby, in the future I would really love to try 3D graphic design, because I want to create my own indie video games one day.\n\nI need to do my project now. Write back soon!\n\nBest wishes,\nAlex"
+    }
+  ],
+  "speakingTasks": [
+    {
+      "id": "oge_spk_001",
+      "part": 1,
+      "title": "Task 1: Reading Aloud (Чтение текста вслух)",
+      "instructions": "У вас есть 1.5 минуты на подготовку и 2 минуты, чтобы прочитать текст вслух без грубых фонетических ошибок и искажения интонации.",
+      "text": "The Arctic is one of the most mysterious and fragile ecosystems on our planet. Although the climate there is extremely cold and unforgiving, many animals have adapted to survive on thick ice and in freezing water. Polar bears, Arctic foxes, and seals hunt and live across this frozen desert. In recent decades, rising global temperatures have accelerated the melting of polar glaciers. Scientists from all continents study the Arctic to understand environmental changes and protect endangered species before the sea ice permanently disappears.",
+      "phoneticsTips": [
+        "Следи за произношением межзубных звуков [θ] и [ð] в словах 'although', 'there', 'thick'.",
+        "Не оглушай звонкие согласные на конце слов: 'is', 'ecosystems', 'animals', 'glaciers'.",
+        "Делай смысловые паузы на запятых и точках, повышай интонацию на однородных членах (bears, foxes, and seals)."
+      ]
+    },
+    {
+      "id": "oge_spk_002",
+      "part": 2,
+      "title": "Task 2: Electronic Assistant Q&A (Диалог-расспрос)",
+      "instructions": "Вам предстоит ответить на 6 вопросов электронного ассистента без предварительной подготовки. На каждый ответ даётся 40 секунд. Отвечайте полными предложениями (1-2 полные фразы).",
+      "questions": [
+        {
+          "qNumber": 1,
+          "questionText": "What is your favourite subject at school and why do you like it?",
+          "sampleAnswer": "My favourite subject is Computer Science because I enjoy learning how to write algorithms and create mobile apps."
+        },
+        {
+          "qNumber": 2,
+          "questionText": "How many hours a week do you usually spend on your homework?",
+          "sampleAnswer": "I usually spend around ten to twelve hours a week doing my homework, which is about two hours every evening."
+        },
+        {
+          "qNumber": 3,
+          "questionText": "What foreign languages can you speak, or which one would you like to learn?",
+          "sampleAnswer": "I speak Russian fluently and study English at school. In the future, I would also like to learn Spanish or German."
+        },
+        {
+          "qNumber": 4,
+          "questionText": "What school event or celebration was the most memorable for you this year?",
+          "sampleAnswer": "The most memorable event was our annual Science Fair, where our team built a working model of a solar-powered car."
+        },
+        {
+          "qNumber": 5,
+          "questionText": "Why is it important for teenagers to spend time outdoors every day?",
+          "sampleAnswer": "Spending time outdoors helps teenagers reduce digital eye strain, get fresh air, and stay physically fit and energized."
+        },
+        {
+          "qNumber": 6,
+          "questionText": "What advice would you give to a friend who wants to improve their English speaking skills?",
+          "sampleAnswer": "I would advise them to watch films in original English with subtitles and practice speaking with friends or apps every day."
+        }
+      ]
+    },
+    {
+      "id": "oge_spk_003",
+      "part": 3,
+      "title": "Task 3: Monologue (Тематическое высказывание)",
+      "instructions": "Вам необходимо составить связный монолог на 10–12 фраз (до 2 минут) на тему 'School and Future Career'. 1.5 минуты на подготовку.",
+      "planPoints": [
+        "Why getting a good education is important for modern teenagers;",
+        "What school subjects you find most useful for your future job;",
+        "Whether teenagers should have part-time jobs during holidays and why;",
+        "What career or profession you are planning to choose in the future."
+      ],
+      "structureTips": "Обязательно используй вводную фразу ('I am going to give a talk about...'), слова-связки (Firstly, In addition, To sum up) и заключительную фразу ('That is all I wanted to say. Thank you for listening.')."
+    }
+  ],
+  "readingTrueFalse": [
+    {
+      "id": "oge_rd_001",
+      "title": "Smart Cities of Tomorrow",
+      "text": "Urban planners across the globe are integrating IoT (Internet of Things) sensors into modern cities. In places like Singapore and Copenhagen, traffic lights dynamically adjust timing according to vehicle queues, which reduces carbon emissions by nearly twenty percent. Street lamps only turn on at full brightness when pedestrians or cyclists pass by. However, some citizens worry about digital privacy, fearing that extensive surveillance cameras might track their daily movements without explicit consent.",
+      "statements": [
+        {
+          "id": "s1",
+          "statement": "Smart traffic lights in Singapore help decrease air pollution.",
+          "correct": "TRUE",
+          "explanation": "Текст: 'reduces carbon emissions by nearly twenty percent' — значит снижает загрязнение воздуха."
+        },
+        {
+          "id": "s2",
+          "statement": "Street lamps in Copenhagen stay at maximum brightness all night long.",
+          "correct": "FALSE",
+          "explanation": "Текст: 'Street lamps only turn on at full brightness when pedestrians or cyclists pass by' — то есть не горят на полную мощность всю ночь."
+        },
+        {
+          "id": "s3",
+          "statement": "All citizens are satisfied with the security provided by city cameras.",
+          "correct": "FALSE",
+          "explanation": "Текст: 'some citizens worry about digital privacy, fearing surveillance cameras' — то есть не все довольны."
+        },
+        {
+          "id": "s4",
+          "statement": "Tokyo plans to implement a similar smart lighting system next year.",
+          "correct": "NOT_STATED",
+          "explanation": "Про планы Токио в тексте ничего не сказано."
+        }
+      ]
+    }
+  ]
+}

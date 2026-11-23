@@ -1,0 +1,40 @@
+name: english_for_children
+description: "Interactive English learning app for 13yo (Grades 7-9 OGE & IB MYP) with Clean Architecture, Drift SQLite, and Goal tracking."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  dio: ^5.9.2
+  drift: ^2.24.0
+  drift_flutter: ^0.3.0
+  equatable: ^3.0.0
+  flutter_bloc: ^9.1.1
+  flutter_secure_storage: ^10.2.0
+  flutter_tts: ^4.2.5
+  just_audio: ^0.10.5
+  unorm_dart: ^0.3.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  bloc_test: ^10.0.0
+  build_runner: ^2.4.14
+  drift_dev: ^2.24.0
+  flutter_lints: ^6.0.0
+  mocktail: ^1.0.5
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/seed/oge_grammar_seed.json
+    - assets/seed/oge_word_formation_seed.json
+    - assets/seed/oge_exam_sim_seed.json
+    - assets/seed/ib_inquiry_seed.json
+    - assets/seed/srs_seed.json
+    - assets/seed/goals_seed.json

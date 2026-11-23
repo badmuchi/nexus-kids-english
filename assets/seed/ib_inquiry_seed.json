@@ -1,0 +1,90 @@
+[
+  {
+    "id": "ib_unit_001",
+    "title": "Digital Footprint: Who Are We Online?",
+    "phase": "Phase 3/4",
+    "globalContext": "Identities and Relationships",
+    "keyConcept": "Communication",
+    "relatedConcepts": ["Audience", "Context", "Self-expression"],
+    "statementOfInquiry": "Our digital communication reflects cultural identities and shapes the way diverse audiences perceive personal reputation.",
+    "inquiryQuestions": {
+      "factual": "What traces of personal data do teenagers leave when using social media platforms?",
+      "conceptual": "How does digital communication influence real-world relationships and empathy?",
+      "debatable": "Should parents and schools monitor adolescent online interactions for safety?"
+    },
+    "criteriaTasks": [
+      {
+        "criterion": "Criterion A",
+        "skill": "Comprehending Spoken and Visual Text (Listening)",
+        "taskTitle": "Podcast: The Psychology of Social Media Likes",
+        "prompt": "Listen to the teen audio interview and identify the speaker's tone, key arguments about dopamine rewards, and implicit biases regarding screen time limits.",
+        "maxScore": 8
+      },
+      {
+        "criterion": "Criterion B",
+        "skill": "Comprehending Written and Visual Text (Reading)",
+        "taskTitle": "Infographic Analysis: Data Privacy in 2026",
+        "prompt": "Read the multi-modal tech report. Analyze how visuals, headings, and statistical charts work together to persuade youth to protect biometric identifiers.",
+        "maxScore": 8
+      },
+      {
+        "criterion": "Criterion C",
+        "skill": "Communicating in Spoken Language (Speaking)",
+        "taskTitle": "Panel Discussion: Digital Detox vs FOMO",
+        "prompt": "Participate in an interactive debate. Defend your stance on whether a weekly digital detox improves adolescent mental health, using nuanced discourse markers.",
+        "maxScore": 8
+      },
+      {
+        "criterion": "Criterion D",
+        "skill": "Using Language in Written Form (Writing)",
+        "taskTitle": "Blog Post: A Teen Guide to Mindful Tech Use",
+        "prompt": "Write an engaging, structured blog post (200-250 words) offering actionable digital wellness strategies for peers, adopting an empathetic yet persuasive register.",
+        "maxScore": 8
+      }
+    ]
+  },
+  {
+    "id": "ib_unit_002",
+    "title": "AI & The Future: Creativity or Code?",
+    "phase": "Phase 3/4",
+    "globalContext": "Scientific and Technical Innovation",
+    "keyConcept": "Creativity",
+    "relatedConcepts": ["Innovation", "Meaning", "Purpose"],
+    "statementOfInquiry": "Technological innovation challenges traditional boundaries of human creativity and compels us to redefine authentic intellectual expression.",
+    "inquiryQuestions": {
+      "factual": "How do generative AI models produce music, digital art, and essays?",
+      "conceptual": "To what extent can an artificial intelligence exhibit genuine emotional resonance?",
+      "debatable": "Does relying on artificial intelligence in school diminish human problem-solving skills?"
+    },
+    "criteriaTasks": [
+      {
+        "criterion": "Criterion A",
+        "skill": "Comprehending Spoken and Visual Text (Listening)",
+        "taskTitle": "Tech Talk: Generative Art in Video Game Studios",
+        "prompt": "Listen to a game director discuss procedural world generation. Take structured notes on ethical considerations and copyright challenges.",
+        "maxScore": 8
+      },
+      {
+        "criterion": "Criterion B",
+        "skill": "Comprehending Written and Visual Text (Reading)",
+        "taskTitle": "Editorial: The Robot Novelist",
+        "prompt": "Critically analyze an opinion piece comparing Shakespearean drama with algorithmic story generators. Evaluate the author's figurative language.",
+        "maxScore": 8
+      },
+      {
+        "criterion": "Criterion C",
+        "skill": "Communicating in Spoken Language (Speaking)",
+        "taskTitle": "Pitch: An AI Ethics Guideline for Our School",
+        "prompt": "Present a 3-minute proposal advocating for responsible AI usage in academic competitions and homework tasks.",
+        "maxScore": 8
+      },
+      {
+        "criterion": "Criterion D",
+        "skill": "Using Language in Written Form (Writing)",
+        "taskTitle": "Science Fiction Flash Story (250 words)",
+        "prompt": "Craft a speculative narrative about a future classroom where an AI companion discovers human humor. Emphasize sensory imagery and mood.",
+        "maxScore": 8
+      }
+    ]
+  }
+]
