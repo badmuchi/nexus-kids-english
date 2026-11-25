@@ -27,7 +27,7 @@ jobs:
       - run: flutter analyze --no-fatal-infos
       - run: flutter build web --release --base-href "/nexus-kids-english/"
       - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: build/web
       - uses: actions/deploy-pages@v4
