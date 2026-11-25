@@ -19,6 +19,9 @@ dependencies:
   flutter_tts: ^4.2.5
   just_audio: ^0.10.5
   unorm_dart: ^0.3.3
+  pdf: ^3.13.1
+  printing: ^5.15.1
+  path_provider: ^2.1.6
 
 dev_dependencies:
   flutter_test:

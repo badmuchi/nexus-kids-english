@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/audio/hybrid_audio_playback_service.dart';
 import '../../../../core/theme/app_theme.dart';
+import '../../../../core/widgets/interactive_voice_recorder.dart';
 import '../../domain/entities/ib_speaking_entity.dart';
 import '../ib_speaking_bloc.dart';
 import '../ib_speaking_event.dart';
@@ -277,6 +278,13 @@ class _IbSpeakingStudioScreenState extends State<IbSpeakingStudioScreen> {
               ],
             ),
           ),
+        ),
+        const SizedBox(height: 16),
+
+        // Voice recorder practice
+        InteractiveVoiceRecorder(
+          audioService: widget.audioService,
+          label: 'Запись твоего ответа (Picture Description):',
         ),
         const SizedBox(height: 16),
 

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/audio/hybrid_audio_playback_service.dart';
 import '../../../../core/theme/app_theme.dart';
+import '../../../../core/widgets/confetti_overlay.dart';
 import '../mascot_duel_bloc.dart';
 import '../mascot_duel_event.dart';
 import '../mascot_duel_state.dart';
@@ -71,7 +72,7 @@ class _MascotDuelScreenState extends State<MascotDuelScreen> {
           if (state is MascotDuelFinished) {
             _gameTimer?.cancel();
             if (state.isUserWinner) {
-              widget.audioService.speakText('Victory! You defeated Sparky!');
+              widget.audioService.playVictorySound();
             }
           }
         },
@@ -267,80 +268,83 @@ class _MascotDuelScreenState extends State<MascotDuelScreen> {
             ? 'Вы шли ноздря в ноздрю! Отличный результат!'
             : 'Лисёнок сегодня был быстрее. Потренируйся и возьми реванш!');
 
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Card(
-          elevation: 4,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          child: Padding(
-            padding: const EdgeInsets.all(24),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  state.isUserWinner ? '🎉🦊🥇' : (state.isDraw ? '🤝✨' : '🦊💪'),
-                  style: const TextStyle(fontSize: 54),
-                ),
-                const SizedBox(height: 12),
-                Text(
-                  title,
-                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  subtitle,
-                  style: TextStyle(color: Colors.grey.shade700, fontSize: 14),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Column(
-                      children: [
-                        const Text('Ты:', style: TextStyle(fontWeight: FontWeight.bold)),
-                        Text(
-                          '${state.userScore}',
-                          style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w900, color: AppTheme.primaryColor),
-                        ),
-                      ],
-                    ),
-                    const Text('VS', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.grey)),
-                    Column(
-                      children: [
-                        const Text('Спарки:', style: TextStyle(fontWeight: FontWeight.bold)),
-                        Text(
-                          '${state.sparkyScore}',
-                          style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w900, color: AppTheme.accentColor),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 20),
-                Chip(
-                  backgroundColor: AppTheme.accentColor.withAlpha(40),
-                  avatar: const Icon(Icons.star, color: AppTheme.accentColor),
-                  label: Text(
-                    '+${state.xpEarned} XP получено!',
-                    style: const TextStyle(fontWeight: FontWeight.bold),
+    return ConfettiOverlay(
+      isPlaying: state.isUserWinner,
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Card(
+            elevation: 4,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            child: Padding(
+              padding: const EdgeInsets.all(24),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    state.isUserWinner ? '🎉🦊🥇' : (state.isDraw ? '🤝✨' : '🦊💪'),
+                    style: const TextStyle(fontSize: 54),
                   ),
-                ),
-                const SizedBox(height: 24),
-                ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppTheme.primaryColor,
-                    foregroundColor: Colors.white,
-                    minimumSize: const Size.fromHeight(48),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                  const SizedBox(height: 12),
+                  Text(
+                    title,
+                    style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
                   ),
-                  onPressed: _startDuel,
-                  icon: const Icon(Icons.replay),
-                  label: const Text('Сыграть реванш (60с)'),
-                ),
-              ],
+                  const SizedBox(height: 8),
+                  Text(
+                    subtitle,
+                    style: TextStyle(color: Colors.grey.shade700, fontSize: 14),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        children: [
+                          const Text('Ты:', style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text(
+                            '${state.userScore}',
+                            style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w900, color: AppTheme.primaryColor),
+                          ),
+                        ],
+                      ),
+                      const Text('VS', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.grey)),
+                      Column(
+                        children: [
+                          const Text('Спарки:', style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text(
+                            '${state.sparkyScore}',
+                            style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w900, color: AppTheme.accentColor),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+                  Chip(
+                    backgroundColor: AppTheme.accentColor.withAlpha(40),
+                    avatar: const Icon(Icons.star, color: AppTheme.accentColor),
+                    label: Text(
+                      '+${state.xpEarned} XP получено!',
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppTheme.primaryColor,
+                      foregroundColor: Colors.white,
+                      minimumSize: const Size.fromHeight(48),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                    ),
+                    onPressed: _startDuel,
+                    icon: const Icon(Icons.replay),
+                    label: const Text('Сыграть реванш (60с)'),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

@@ -1,13 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:printing/printing.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../ib_portfolio/presentation/ib_portfolio_bloc.dart';
 import '../../../ib_portfolio/presentation/ib_portfolio_state.dart';
-
+import '../../../mistakes/presentation/mistakes_bloc.dart';
+import '../../../mistakes/presentation/mistakes_state.dart';
+import '../../domain/services/pdf_report_generator.dart';
 
 class ParentTutorReportScreen extends StatelessWidget {
   const ParentTutorReportScreen({super.key});
+
+  Future<void> _exportPdfReport(
+    BuildContext context, {
+    required int activeMistakesCount,
+    required int resolvedMistakesCount,
+    required int ibTotal,
+    required int ibGrade,
+  }) async {
+    const generator = PdfReportGenerator();
+    await Printing.layoutPdf(
+      name: 'English_Progress_Report.pdf',
+      onLayout: (format) => generator.generateAcademicReport(
+        activeMistakesCount: activeMistakesCount,
+        resolvedMistakesCount: resolvedMistakesCount,
+        ibTotalScore: ibTotal,
+        ibGrade: ibGrade,
+        ogeEstimatedScore: 58,
+        studentName: 'Ученик (13 лет)',
+      ),
+    );
+  }
 
   void _copyReportToClipboard(BuildContext context, {
     required int activeMistakesCount,
@@ -47,20 +71,58 @@ class ParentTutorReportScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Отчет для родителей и репетитора'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.picture_as_pdf),
+            tooltip: 'Экспорт в PDF',
+            onPressed: () {
+              final mistakesState = context.read<MistakesBloc>().state;
+              final ibState = context.read<IbPortfolioBloc>().state;
+
+              int activeMistakes = 3;
+              int resolvedMistakes = 0;
+              if (mistakesState is MistakesLoaded) {
+                activeMistakes = mistakesState.activeCount;
+                resolvedMistakes = mistakesState.resolvedCount;
+              }
+
+              int ibTotal = 26;
+              int ibGrade = 6;
+              if (ibState is IbPortfolioLoaded) {
+                ibTotal = ibState.summary.totalOutOf32;
+                ibGrade = ibState.summary.ibFinalGrade;
+              }
+
+              _exportPdfReport(
+                context,
+                activeMistakesCount: activeMistakes,
+                resolvedMistakesCount: resolvedMistakes,
+                ibTotal: ibTotal,
+                ibGrade: ibGrade,
+              );
+            },
+          ),
+        ],
       ),
-      body: BlocBuilder<IbPortfolioBloc, IbPortfolioState>(
-        builder: (context, ibState) {
-          const int activeMistakes = 3;
-          const int resolvedMistakes = 2;
+      body: BlocBuilder<MistakesBloc, MistakesState>(
+        builder: (context, mistakesState) {
+          return BlocBuilder<IbPortfolioBloc, IbPortfolioState>(
+            builder: (context, ibState) {
+              int activeMistakes = 3;
+              int resolvedMistakes = 0;
+              if (mistakesState is MistakesLoaded) {
+                activeMistakes = mistakesState.activeCount;
+                resolvedMistakes = mistakesState.resolvedCount;
+              }
 
-          int ibTotal = 26;
-          int ibGrade = 6;
-          if (ibState is IbPortfolioLoaded) {
-            ibTotal = ibState.summary.totalOutOf32;
-            ibGrade = ibState.summary.ibFinalGrade;
-          }
+              int ibTotal = 26;
+              int ibGrade = 6;
+              if (ibState is IbPortfolioLoaded) {
+                ibTotal = ibState.summary.totalOutOf32;
+                ibGrade = ibState.summary.ibFinalGrade;
+              }
 
-          return SingleChildScrollView(
+              return SingleChildScrollView(
                 padding: const EdgeInsets.all(16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -86,10 +148,30 @@ class ParentTutorReportScreen extends StatelessWidget {
                         minimumSize: const Size.fromHeight(52),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
                       ),
+                      icon: const Icon(Icons.picture_as_pdf),
+                      label: const Text(
+                        '📄 Экспорт официального табеля в PDF',
+                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                      onPressed: () => _exportPdfReport(
+                        context,
+                        activeMistakesCount: activeMistakes,
+                        resolvedMistakesCount: resolvedMistakes,
+                        ibTotal: ibTotal,
+                        ibGrade: ibGrade,
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    OutlinedButton.icon(
+                      style: OutlinedButton.styleFrom(
+                        foregroundColor: AppTheme.primaryColor,
+                        minimumSize: const Size.fromHeight(50),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                      ),
                       icon: const Icon(Icons.copy_all),
                       label: const Text(
-                        'Скопировать табель для репетитора',
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        'Скопировать текст для мессенджера',
+                        style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                       ),
                       onPressed: () => _copyReportToClipboard(
                         context,
@@ -103,6 +185,8 @@ class ParentTutorReportScreen extends StatelessWidget {
                   ],
                 ),
               );
+            },
+          );
         },
       ),
     );
@@ -122,7 +206,7 @@ class ParentTutorReportScreen extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 24,
-                  backgroundColor: AppTheme.primaryColor.withOpacity(0.12),
+                  backgroundColor: AppTheme.primaryColor.withValues(alpha: 0.12),
                   child: const Icon(Icons.school, color: AppTheme.primaryColor, size: 28),
                 ),
                 const SizedBox(width: 14),
@@ -294,7 +378,7 @@ class ParentTutorReportScreen extends StatelessWidget {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
       elevation: 2,
-      color: AppTheme.accentColor.withOpacity(0.08),
+      color: AppTheme.accentColor.withValues(alpha: 0.08),
       child: const Padding(
         padding: EdgeInsets.all(16),
         child: Column(

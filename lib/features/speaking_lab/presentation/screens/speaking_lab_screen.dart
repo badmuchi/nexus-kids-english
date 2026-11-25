@@ -2,8 +2,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import '../../../../core/audio/hybrid_audio_playback_service.dart';
 import '../../../../core/theme/app_theme.dart';
-import '../../domain/services/wpm_calculator.dart';
+import '../../domain/services/audio_recorder_service.dart';
 import '../../domain/services/speaking_cliches_evaluator.dart';
+import '../../domain/services/wpm_calculator.dart';
+import '../widgets/audio_waveform_visualizer.dart';
+import 'oge_speaking_exam_sim_screen.dart';
 
 class SpeakingLabScreen extends StatefulWidget {
   final HybridAudioPlaybackService audioService;
@@ -19,6 +22,7 @@ class _SpeakingLabScreenState extends State<SpeakingLabScreen> with SingleTicker
 
   final WpmCalculator _wpmCalculator = const WpmCalculator();
   final SpeakingClichesEvaluator _clichesEvaluator = const SpeakingClichesEvaluator();
+  late final AudioRecorderService _recorderService;
 
   // Task 1: Reading Aloud
   static const String _task1Text =
@@ -29,6 +33,7 @@ class _SpeakingLabScreenState extends State<SpeakingLabScreen> with SingleTicker
   bool _isReadingActive = false;
   WpmResult? _wpmResult;
   bool _isPlayingReference = false;
+  bool _isPlayingUserRecording = false;
 
   // Task 2: Dialogue Questions (40s timer per question)
   final List<Map<String, String>> _dialogueQuestions = [
@@ -83,6 +88,13 @@ class _SpeakingLabScreenState extends State<SpeakingLabScreen> with SingleTicker
   void initState() {
     super.initState();
     _tabController = TabController(length: 3, vsync: this);
+    _recorderService = AudioRecorderService();
+    _recorderService.stateStream.listen((state) {
+      if (!mounted) return;
+      setState(() {
+        _isPlayingUserRecording = state == RecordingState.playing;
+      });
+    });
   }
 
   @override
@@ -91,6 +103,7 @@ class _SpeakingLabScreenState extends State<SpeakingLabScreen> with SingleTicker
     _readingTimer?.cancel();
     _dialogueTimer?.cancel();
     _prepTimer?.cancel();
+    _recorderService.dispose();
     _dialogueAnswerController.dispose();
     _monologueController.dispose();
     widget.audioService.stop();
@@ -98,9 +111,10 @@ class _SpeakingLabScreenState extends State<SpeakingLabScreen> with SingleTicker
   }
 
   // --- Task 1 Methods ---
-  void _toggleReadingTimer() {
+  Future<void> _toggleReadingRecording() async {
     if (_isReadingActive) {
       _readingTimer?.cancel();
+      await _recorderService.stopRecording();
       final wordCount = _task1Text.split(RegExp(r'\s+')).where((w) => w.isNotEmpty).length;
       setState(() {
         _isReadingActive = false;
@@ -110,6 +124,7 @@ class _SpeakingLabScreenState extends State<SpeakingLabScreen> with SingleTicker
         );
       });
     } else {
+      await _recorderService.startRecording();
       setState(() {
         _isReadingActive = true;
         _readingElapsedSeconds = 0;
@@ -124,12 +139,23 @@ class _SpeakingLabScreenState extends State<SpeakingLabScreen> with SingleTicker
     }
   }
 
+  Future<void> _playUserRecording() async {
+    if (_isPlayingUserRecording) {
+      await _recorderService.stopPlayback();
+    } else {
+      await widget.audioService.stop();
+      setState(() => _isPlayingReference = false);
+      await _recorderService.playRecording();
+    }
+  }
+
   Future<void> _playReferenceAudio() async {
     if (_isPlayingReference) {
       await widget.audioService.stop();
       if (!mounted) return;
       setState(() => _isPlayingReference = false);
     } else {
+      await _recorderService.stopPlayback();
       setState(() => _isPlayingReference = true);
       await widget.audioService.speakText(_task1Text, language: 'en-US', rate: 0.95);
       if (!mounted) return;
@@ -211,6 +237,21 @@ class _SpeakingLabScreenState extends State<SpeakingLabScreen> with SingleTicker
     return Scaffold(
       appBar: AppBar(
         title: const Text('AI Speaking Lab • Устная часть ОГЭ'),
+        actions: [
+          TextButton.icon(
+            style: TextButton.styleFrom(foregroundColor: AppTheme.accentColor),
+            icon: const Icon(Icons.flash_on, size: 18),
+            label: const Text('Экзамен 15м', style: TextStyle(fontWeight: FontWeight.bold)),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => OgeSpeakingExamSimScreen(audioService: widget.audioService),
+                ),
+              );
+            },
+          ),
+        ],
         bottom: TabBar(
           controller: _tabController,
           indicatorColor: AppTheme.accentColor,
@@ -241,6 +282,8 @@ class _SpeakingLabScreenState extends State<SpeakingLabScreen> with SingleTicker
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          _buildSimBanner(),
+          const SizedBox(height: 14),
           Card(
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             elevation: 2,
@@ -254,7 +297,7 @@ class _SpeakingLabScreenState extends State<SpeakingLabScreen> with SingleTicker
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                         decoration: BoxDecoration(
-                          color: AppTheme.primaryColor.withOpacity(0.12),
+                          color: AppTheme.primaryColor.withValues(alpha: 0.12),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: const Text(
@@ -270,7 +313,7 @@ class _SpeakingLabScreenState extends State<SpeakingLabScreen> with SingleTicker
                   ),
                   const SizedBox(height: 12),
                   const Text(
-                    'Прочитай текст вслух в нормальном темпе. Стандарт ОГЭ ФИПИ: 100–120 слов/минуту без искажения смысла и грубых фонетических ошибок.',
+                    'Прочитай текст вслух в нормальном темпе. Стандарт ОГЭ ФИПИ: 100–120 слов/минуту. Доступно прямое сравнение своего голоса с диктором.',
                     style: TextStyle(fontSize: 14, color: Colors.black87),
                   ),
                   const Divider(height: 24),
@@ -286,9 +329,14 @@ class _SpeakingLabScreenState extends State<SpeakingLabScreen> with SingleTicker
                       style: TextStyle(fontSize: 16, height: 1.55, fontWeight: FontWeight.w400),
                     ),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 14),
+                  AudioWaveformVisualizer(
+                    amplitudeStream: _recorderService.amplitudeStream,
+                    state: _recorderService.state,
+                  ),
+                  const SizedBox(height: 14),
                   Wrap(
-                    spacing: 12,
+                    spacing: 10,
                     runSpacing: 8,
                     children: [
                       ElevatedButton.icon(
@@ -296,12 +344,23 @@ class _SpeakingLabScreenState extends State<SpeakingLabScreen> with SingleTicker
                           backgroundColor: _isReadingActive ? Colors.redAccent : AppTheme.primaryColor,
                           foregroundColor: Colors.white,
                         ),
-                        onPressed: _toggleReadingTimer,
-                        icon: Icon(_isReadingActive ? Icons.stop : Icons.play_arrow),
+                        onPressed: _toggleReadingRecording,
+                        icon: Icon(_isReadingActive ? Icons.stop : Icons.mic),
                         label: Text(_isReadingActive
                             ? 'Стоп ($_readingElapsedSeconds с)'
-                            : 'Начать чтение вслух'),
+                            : 'Записать свое чтение'),
                       ),
+                      if (_recorderService.state == RecordingState.recorded ||
+                          _recorderService.state == RecordingState.playing)
+                        OutlinedButton.icon(
+                          style: OutlinedButton.styleFrom(
+                            foregroundColor: Colors.green.shade800,
+                            side: BorderSide(color: Colors.green.shade600),
+                          ),
+                          onPressed: _playUserRecording,
+                          icon: Icon(_isPlayingUserRecording ? Icons.pause : Icons.play_arrow),
+                          label: Text(_isPlayingUserRecording ? 'Пауза записи' : 'Слушать себя ($_readingElapsedSeconds с)'),
+                        ),
                       OutlinedButton.icon(
                         style: OutlinedButton.styleFrom(
                           foregroundColor: AppTheme.secondaryColor,
@@ -309,7 +368,7 @@ class _SpeakingLabScreenState extends State<SpeakingLabScreen> with SingleTicker
                         ),
                         onPressed: _playReferenceAudio,
                         icon: Icon(_isPlayingReference ? Icons.pause : Icons.volume_up),
-                        label: Text(_isPlayingReference ? 'Остановить эталон' : 'Слушать эталон (US)'),
+                        label: Text(_isPlayingReference ? 'Остановить эталон' : 'Слушать диктора (US)'),
                       ),
                     ],
                   ),
@@ -319,6 +378,57 @@ class _SpeakingLabScreenState extends State<SpeakingLabScreen> with SingleTicker
           ),
           const SizedBox(height: 16),
           if (_wpmResult != null) _buildWpmResultCard(_wpmResult!),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSimBanner() {
+    return Container(
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [Color(0xFF4F46E5), Color(0xFF06B6D4)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Row(
+        children: [
+          const Icon(Icons.flash_on, color: AppTheme.accentColor, size: 28),
+          const SizedBox(width: 12),
+          const Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Полный симулятор устного ОГЭ (non-stop)',
+                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
+                ),
+                Text(
+                  'Все 3 задания с реальными таймингами и звуковыми сигналами ФИПИ.',
+                  style: TextStyle(color: Colors.white70, fontSize: 12),
+                ),
+              ],
+            ),
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppTheme.accentColor,
+              foregroundColor: Colors.black87,
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => OgeSpeakingExamSimScreen(audioService: widget.audioService),
+                ),
+              );
+            },
+            child: const Text('Старт', style: TextStyle(fontWeight: FontWeight.bold)),
+          ),
         ],
       ),
     );
@@ -345,7 +455,7 @@ class _SpeakingLabScreenState extends State<SpeakingLabScreen> with SingleTicker
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       elevation: 3,
-      color: badgeColor.withOpacity(0.06),
+      color: badgeColor.withValues(alpha: 0.06),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -363,7 +473,7 @@ class _SpeakingLabScreenState extends State<SpeakingLabScreen> with SingleTicker
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                   decoration: BoxDecoration(
-                    color: badgeColor.withOpacity(0.15),
+                    color: badgeColor.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Text(
@@ -410,7 +520,7 @@ class _SpeakingLabScreenState extends State<SpeakingLabScreen> with SingleTicker
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                         decoration: BoxDecoration(
-                          color: AppTheme.accentColor.withOpacity(0.2),
+                          color: AppTheme.accentColor.withValues(alpha: 0.2),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Text(
@@ -524,8 +634,8 @@ class _SpeakingLabScreenState extends State<SpeakingLabScreen> with SingleTicker
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
                         color: _dialogueAnswerPass == true
-                            ? Colors.green.withOpacity(0.12)
-                            : Colors.orange.withOpacity(0.12),
+                            ? Colors.green.withValues(alpha: 0.12)
+                            : Colors.orange.withValues(alpha: 0.12),
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(
                           color: _dialogueAnswerPass == true ? Colors.green : Colors.orange,
@@ -589,7 +699,7 @@ class _SpeakingLabScreenState extends State<SpeakingLabScreen> with SingleTicker
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                         decoration: BoxDecoration(
-                          color: AppTheme.secondaryColor.withOpacity(0.15),
+                          color: AppTheme.secondaryColor.withValues(alpha: 0.15),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: const Text(
@@ -675,7 +785,7 @@ class _SpeakingLabScreenState extends State<SpeakingLabScreen> with SingleTicker
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       elevation: 3,
-      color: res.isPass ? Colors.green.withOpacity(0.06) : Colors.orange.withOpacity(0.06),
+      color: res.isPass ? Colors.green.withValues(alpha: 0.06) : Colors.orange.withValues(alpha: 0.06),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(

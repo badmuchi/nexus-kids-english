@@ -102,6 +102,18 @@ class HybridAudioPlaybackService implements AudioPlaybackService {
     await _ttsService.setLanguage(languageCode);
   }
 
+  Future<void> playVictorySound() async {
+    try {
+      await speakText('Awesome! Victory! You are a champion!', rate: 1.05);
+    } catch (_) {}
+  }
+
+  Future<void> playBadgeEarnedSound() async {
+    try {
+      await speakText('Badge unlocked! Incredible work!', rate: 1.05);
+    } catch (_) {}
+  }
+
   @override
   Future<void> dispose() async {
     await stop();

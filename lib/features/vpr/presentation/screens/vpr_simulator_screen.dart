@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/audio/hybrid_audio_playback_service.dart';
 import '../../../../core/theme/app_theme.dart';
+import '../../../../core/widgets/interactive_voice_recorder.dart';
 import 'package:english_for_children/features/srs/domain/services/english_answer_evaluator.dart';
 import '../../domain/entities/vpr_task_entity.dart';
 import '../vpr_bloc.dart';
@@ -283,6 +284,11 @@ class _VprSimulatorScreenState extends State<VprSimulatorScreen> {
             ],
             const SizedBox(height: 16),
             if (task.taskType == VprTaskType.readingAloud) ...[
+              InteractiveVoiceRecorder(
+                audioService: widget.audioService,
+                label: 'Запиши чтение текста вслух (1.5 мин):',
+              ),
+              const SizedBox(height: 12),
               ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppTheme.successColor,
