@@ -1,3 +1,4 @@
+import '../../global_exam_bridge/presentation/screens/global_exam_bridge_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/audio/hybrid_audio_playback_service.dart';
@@ -150,6 +151,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
             const SizedBox(height: 12),
             _buildIbGrid(context),
+            const SizedBox(height: 24),
+            const Text(
+              'Международные экзамены (TOEFL & IELTS Bridge):',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 12),
+            _buildGlobalExamBridgeCard(context),
             const SizedBox(height: 24),
             const Text(
               'Словарь и системные цели:',
@@ -780,6 +788,72 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildGlobalExamBridgeCard(BuildContext context) {
+    return Card(
+      elevation: 3,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(20),
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => GlobalExamBridgeScreen(audioService: widget.audioService),
+            ),
+          );
+        },
+        child: Container(
+          padding: const EdgeInsets.all(18),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            gradient: const LinearGradient(
+              colors: [Color(0xFF1E3A8A), Color(0xFF0F766E)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          child: Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Colors.white.withValues(alpha: 0.16),
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                child: const Icon(Icons.public, color: Colors.white, size: 30),
+              ),
+              const SizedBox(width: 14),
+              const Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'TOEFL & IELTS Bridge (13+)',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 16,
+                      ),
+                    ),
+                    SizedBox(height: 4),
+                    Text(
+                      'Reading (MCQ + T/F/NG) • US/UK Listening • Timed Speaking • Academic Writing',
+                      style: TextStyle(
+                        color: Colors.white70,
+                        fontSize: 12,
+                        height: 1.35,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const Icon(Icons.arrow_forward_ios, color: Colors.white70, size: 16),
+            ],
+          ),
+        ),
+      ),
     );
   }
 
